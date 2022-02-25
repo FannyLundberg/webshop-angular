@@ -3,8 +3,8 @@
 </section>
 
 <section>
-    <div>Film 1 - ska loopas ut film</div>
-    <div>Film 2 - ska loopas ut film</div>
-    <div>Film 3 - ska loopas ut film</div>
-    <div>Film 4 - ska loopas ut film</div>
+    <div *ngFor="let p of product">
+        <p> {{ p.name }} </p>
+        <p> {{ p.id }} </p>
+    </div>
 </section>
