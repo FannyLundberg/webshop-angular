@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    height: 10vh;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(81,91,94,0.9637883008356546) 57%, rgba(0,0,0,1) 95%, rgba(0,0,0,1) 100%);
+}
+
+main {
+    min-height: 85vh;
+    max-height: fit-content;
+    display: flex;
+}
+
+footer {
+    height: 5vh;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(81,91,94,0.9637883008356546) 17%, rgba(0,0,0,1) 95%, rgba(0,0,0,1) 100%);
+}

@@ -1,0 +1,29 @@
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Hem</a>
+      </li>
+      <li>
+        <a routerLink="product" routerLinkActive="active">Alla produkter</a>
+      </li>
+      <li>
+        <a routerLink="category" routerLinkActive="active">Kategorier</a>
+      </li>
+      <li>
+        <a routerLink="about" routerLinkActive="active">Om oss</a>
+      </li>
+      <li>
+        <a routerLink="contact" routerLinkActive="active">Kontakt</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p>©</p>
+</footer>
