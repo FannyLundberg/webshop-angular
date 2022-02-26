@@ -6,13 +6,18 @@ section {
 }
 
 #newsText {
-    height: 30vh;
+    height: 15vh;
     background-color: rgb(95, 95, 95);
 }
 
 div {
-    border: 1px solid white;
-    width: 30%;
-    height: 250px;
+    width: 40%;
+    height: 290px;
     margin: 2%;
+    text-align: center;
+}
+
+img {
+    width: 200px;
+    height: 250px;
 }

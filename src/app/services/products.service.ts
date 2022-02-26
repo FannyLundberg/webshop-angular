@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IProduct } from '../models/IProduct';
-import { IProductData } from '../models/IProductData';
+// import { IProductData } from '../models/IProductData';
+// import { IProducts } from '../models/IProducts';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,10 @@ export class ProductsService {
   // Hämta data från API utifrån struktur på interfacet
   getProduct() {
     this.http
-    .get<IProductData>(environment.productURL)
+    .get<IProduct[]>(environment.productURL)
     .subscribe((dataFromProductApi) => {
-      this.productData.next(dataFromProductApi.products);
-      console.log(dataFromProductApi.products);
+      this.productData.next(dataFromProductApi);
+      // console.log(dataFromProductApi);
     })
   }
 
