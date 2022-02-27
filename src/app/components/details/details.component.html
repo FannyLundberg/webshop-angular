@@ -1,1 +1,10 @@
 <p>details works!</p>
+
+<h3> ProduktNr {{ productNr }} </h3>
+<h3> Produkt json {{ product | json }} </h3>
+<h3> Produkt {{ product }} </h3>
+
+<div *ngFor="let p of product; let i = index">
+    <h3> {{ p.name }} </h3>
+</div>
+

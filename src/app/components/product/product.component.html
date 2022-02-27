@@ -1,11 +1,11 @@
 <h2>Alla filmer</h2>
 
 <section>
-    <div *ngFor="let p of product">
+    <div *ngFor="let p of product; let i = index">
         <h3> {{ p.name }} </h3>
         <img src="{{ p.imageUrl }}">
         <p> {{ p.price }} kronor </p>
-        <a [routerLink]="['/product', '.id']" routerLinkActive="active">Läs mer</a>
+        <a (click)="showDetails(i)" [routerLink]="['/product', '.id']" routerLinkActive="active">Läs mer</a>
         <button><a [routerLink]="['/checkout']" routerLinkActive="active">Köp</a></button>
     </div>
 </section>
