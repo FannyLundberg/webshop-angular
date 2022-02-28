@@ -21,15 +21,18 @@ export class DetailsComponent implements OnInit {
       this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
         this.product = dataFromProductApi;
 
+        // param 
+
+        
         // Kör funktion för att hämta data från ls
-        this.getProductfromLs();
+        // this.getProductfromLs();
       })
   }
 
   // Hämta data från localStorage
-  getProductfromLs() {
-    this.choosenProduct = localStorage.getItem("productDetails") || "[]";
-    this.choosenProduct = JSON.parse(this.choosenProduct);
-  }
+  // getProductfromLs() {
+  //   this.choosenProduct = localStorage.getItem("productDetails") || "[]";
+  //   this.choosenProduct = JSON.parse(this.choosenProduct);
+  // }
 
 }

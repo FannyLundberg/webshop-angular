@@ -5,7 +5,7 @@
         <h3> {{ p.name }} </h3>
         <img src="{{ p.imageUrl }}">
         <p> {{ p.price }} kronor </p>
-        <a (click)="showDetails(i)" [routerLink]="['/product', '.id']" routerLinkActive="active">Läs mer</a>
+        <a (click)="showDetails(i)" [routerLink]="['/product', p.id]" routerLinkActive="active">Läs mer</a>
         <button><a (click)="addToCart(i)" [routerLink]="['/shopping-cart']" routerLinkActive="active">Köp</a></button>
     </div>
 </section>
