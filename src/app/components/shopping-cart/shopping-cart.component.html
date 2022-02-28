@@ -1,0 +1,14 @@
+<section>
+    <h2>Varukorg</h2>
+
+    <h3>Dina varor: </h3>
+
+    <section *ngFor="let p of product; let i = index">
+        <div *ngIf="this.product[i].name == cartProduct.name">
+            <h4> Titel: {{ this.p.name }} </h4>
+            <h4> Pris: {{ this.p.price }} </h4>
+        </div>
+    </section>
+
+    <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt handla ↩</a>
+</section>

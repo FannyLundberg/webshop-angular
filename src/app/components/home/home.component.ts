@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
       this.product = dataFromProductApi;
-      console.log(this.product)
+      // console.log(this.product)
     })
     this.service.getProduct();
   }

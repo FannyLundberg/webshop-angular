@@ -11,24 +11,41 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductComponent implements OnInit {
 
   product: IProduct[] = [];
-  productNr: number = 0;
+  //productNr: number = 0;
+  shoppingCart: [] = [];
 
   constructor(private service: ProductsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
       this.product = dataFromProductApi;
-      console.log(this.product)
+      // console.log(this.product)
     })
     this.service.getProduct();
   }
 
+  // Detaljer om produkt
   showDetails(i: number) {
-    console.log("Hej");
-    console.log(i);
-    console.log(this.productNr);  
-  
-    return this.productNr = i;
+    this.saveDetailsToLs(i);
+  }
+
+  // Lägg till i varukorg
+  addToCart(i: number) {
+    alert("Din vara har lagts till i varukorgen 💃")
+
+    // this.shoppingCart.push();
+    this.saveCartToLs(i);
+    console.log(this.shoppingCart);
+  }
+
+  // Spara till localStorage Details
+  saveDetailsToLs(i: number) {
+    localStorage.setItem("productDetails", JSON.stringify(this.product[i]));
+  }
+
+  // Spara till localStorage ShoppingCart
+  saveCartToLs(i: number) {
+    localStorage.setItem("productCart", JSON.stringify(this.product[i]));
   }
 
 }

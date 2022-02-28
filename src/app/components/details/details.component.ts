@@ -11,24 +11,27 @@ import { ProductsService } from 'src/app/services/products.service';
 export class DetailsComponent implements OnInit {
 
   product: IProduct[] = [];
-  productNr: any = [];
+  choosenProduct: any = [];
+  productId: number = 0;
   
-  constructor(private route: ActivatedRoute, private service: ProductsService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private service: ProductsService) { }
 
   ngOnInit(): void {
-    console.log("produktnr" + this.productNr)
-    console.log("produkt" + this.product)
-
-    this.route.params.subscribe((p) => {
-      this.productNr = +p["id"];
-
-      this.productNr = this.service.getProduct();
+      this.service.getProduct();
 
       this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
         this.product = dataFromProductApi;
-        console.log(this.product)
+
+        // Kör funktion för att hämta data från ls
+        this.getProductfromLs();
       })
-    })
+    // })
+  }
+
+  // Hämta data från localStorage
+  getProductfromLs() {
+    this.choosenProduct = localStorage.getItem("productDetails") || "[]";
+    this.choosenProduct = JSON.parse(this.choosenProduct);
   }
 
 }

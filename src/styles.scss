@@ -10,14 +10,15 @@ body {
 }
 
 header {
-    height: 10vh;
+    height: 15vh;
     background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(81,91,94,0.9637883008356546) 57%, rgba(0,0,0,1) 95%, rgba(0,0,0,1) 100%);
 }
 
 main {
-    min-height: 85vh;
+    min-height: 80vh;
     max-height: fit-content;
     display: flex;
+    text-align: center;
 }
 
 footer {

@@ -7,8 +7,10 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductComponent } from './components/product/product.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: "category", component: CategoryComponent },
   { path: "product", component: ProductComponent },
   { path: "product/:id", component: DetailsComponent },
+  { path: "shopping-cart", component: ShoppingCartComponent },
   { path: "checkout", component: CheckoutComponent },
   { path: "admin", component: AdminComponent },
   { path: "**", component: NotfoundComponent }

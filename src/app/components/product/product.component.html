@@ -6,6 +6,6 @@
         <img src="{{ p.imageUrl }}">
         <p> {{ p.price }} kronor </p>
         <a (click)="showDetails(i)" [routerLink]="['/product', '.id']" routerLinkActive="active">Läs mer</a>
-        <button><a [routerLink]="['/checkout']" routerLinkActive="active">Köp</a></button>
+        <button><a (click)="addToCart(i)" [routerLink]="['/shopping-cart']" routerLinkActive="active">Köp</a></button>
     </div>
 </section>

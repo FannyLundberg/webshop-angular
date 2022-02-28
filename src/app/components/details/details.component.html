@@ -1,10 +1,13 @@
-<p>details works!</p>
+<section>
+    <h2>Om filmen</h2>
 
-<h3> ProduktNr {{ productNr }} </h3>
-<h3> Produkt json {{ product | json }} </h3>
-<h3> Produkt {{ product }} </h3>
+    <section *ngFor="let p of product; let i = index">
+        <div *ngIf="this.product[i].name == choosenProduct.name">
+            <h3> {{ this.p.name }} ({{ this.p.year }}) </h3>
+            <img src="{{ p.imageUrl }}">
+            <h3> Handling: {{ this.p.description }} </h3>
+        </div>
+    </section>
 
-<!-- <div *ngFor="let p of product; let i = index">
-    <h3> {{ p.name }} </h3>
-</div> -->
-
+    <a [routerLink]="['/product']" routerLinkActive="active">Tillbaka ↩</a>
+</section>
