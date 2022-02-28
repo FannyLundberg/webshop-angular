@@ -11,11 +11,21 @@ h3 {
     text-decoration: underline;
 }
 
-div {
+#cartSection {
     margin-bottom: 5%;
+    border: 1px solid rgb(126, 126, 126);
 }
 
 a {
     color: white;
     text-decoration: none;
+}
+
+#submitCart {
+    margin-top: 10%;
+    button {
+        background-color: rgb(58, 56, 56);
+        box-shadow: white inset 2px;
+        padding: 1.5%;
+    }
 }

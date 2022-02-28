@@ -12,8 +12,6 @@ export class ShoppingCartComponent implements OnInit {
 
   product: IProduct[] = [];
   cartProduct: any = [];
-  productNr: any = 0;
-
 
   constructor(private service: ProductsService, private route: ActivatedRoute) { }
 
@@ -31,8 +29,10 @@ export class ShoppingCartComponent implements OnInit {
 
   // Hämta data från localStorage
   getCartfromLs() {
-    this.cartProduct = localStorage.getItem("productCart") || "[]";
-    this.cartProduct = JSON.parse(this.cartProduct);
+    let cartObject = localStorage.getItem("productCart") || "[]";
+    this.cartProduct = JSON.parse(cartObject);
+    console.log(cartObject);
+    console.log(this.cartProduct);
   }
   
 }

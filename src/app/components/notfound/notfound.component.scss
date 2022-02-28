@@ -1,0 +1,15 @@
+section {
+    width: 100vw;
+}
+
+div {
+    margin-top: 8%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    &.active {
+        text-decoration: underline;
+    }
+}

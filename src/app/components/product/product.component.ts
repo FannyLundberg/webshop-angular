@@ -11,15 +11,14 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductComponent implements OnInit {
 
   product: IProduct[] = [];
-  //productNr: number = 0;
-  shoppingCart: [] = [];
+  shoppingCart: object[] = [];
+  buyProduct: IProduct[] = []
 
-  constructor(private service: ProductsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
     this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
       this.product = dataFromProductApi;
-      // console.log(this.product)
     })
     this.service.getProduct();
   }
@@ -33,7 +32,9 @@ export class ProductComponent implements OnInit {
   addToCart(i: number) {
     alert("Din vara har lagts till i varukorgen 💃")
 
-    // this.shoppingCart.push();
+    let buyProduct = this.product[i];
+    // console.log(buyProduct);
+    this.shoppingCart.push(buyProduct);
     this.saveCartToLs(i);
     console.log(this.shoppingCart);
   }
@@ -45,7 +46,13 @@ export class ProductComponent implements OnInit {
 
   // Spara till localStorage ShoppingCart
   saveCartToLs(i: number) {
-    localStorage.setItem("productCart", JSON.stringify(this.product[i]));
+    localStorage.setItem("productCart", JSON.stringify(this.shoppingCart));
   }
+
+  // Funkar för att spara en film och skriva ut i HTML i shopping-cart-komponent
+  // // Spara till localStorage ShoppingCart
+  // saveCartToLs(i: number) {
+  //   localStorage.setItem("productCart", JSON.stringify(this.product[i]));
+  // }
 
 }

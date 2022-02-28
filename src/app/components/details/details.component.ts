@@ -12,7 +12,6 @@ export class DetailsComponent implements OnInit {
 
   product: IProduct[] = [];
   choosenProduct: any = [];
-  productId: number = 0;
   
   constructor(private route: ActivatedRoute, private service: ProductsService) { }
 
@@ -25,7 +24,6 @@ export class DetailsComponent implements OnInit {
         // Kör funktion för att hämta data från ls
         this.getProductfromLs();
       })
-    // })
   }
 
   // Hämta data från localStorage
