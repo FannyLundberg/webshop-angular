@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/IProduct';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -11,8 +10,8 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductComponent implements OnInit {
 
   product: IProduct[] = [];
-  shoppingCart: object[] = [];
-  buyProduct: IProduct[] = []
+  buyProduct: IProduct[] = [];
+  productLs: IProduct[] = [];
 
   constructor(private service: ProductsService) { }
 
@@ -23,36 +22,21 @@ export class ProductComponent implements OnInit {
     this.service.getProduct();
   }
 
-  // Detaljer om produkt
-  showDetails(i: number) {
-    this.saveDetailsToLs(i);
-  }
-
   // Lägg till i varukorg
   addToCart(i: number) {
     alert("Din vara har lagts till i varukorgen 💃")
 
     let buyProduct = this.product[i];
-    // console.log(buyProduct);
-    this.shoppingCart.push(buyProduct);
-    this.saveCartToLs(i);
-    console.log(this.shoppingCart);
+    this.saveCartToLs(buyProduct);
   }
 
-  // Spara till localStorage Details
-  saveDetailsToLs(i: number) {
-    localStorage.setItem("productDetails", JSON.stringify(this.product[i]));
-  }
+  // Spara till localStorage för varukorgen
+  saveCartToLs(buyProduct: IProduct) {
+    let productList = localStorage.getItem("productCart") || "[]";
+    this.productLs = JSON.parse(productList);
 
-  // Spara till localStorage ShoppingCart
-  saveCartToLs(i: number) {
-    localStorage.setItem("productCart", JSON.stringify(this.shoppingCart));
+    this.productLs.push(buyProduct);
+    localStorage.setItem("productCart", JSON.stringify(this.productLs));
   }
-
-  // Funkar för att spara en film och skriva ut i HTML i shopping-cart-komponent
-  // // Spara till localStorage ShoppingCart
-  // saveCartToLs(i: number) {
-  //   localStorage.setItem("productCart", JSON.stringify(this.product[i]));
-  // }
 
 }

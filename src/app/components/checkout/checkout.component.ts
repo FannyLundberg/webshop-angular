@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { IProduct } from 'src/app/models/IProduct';
 
 @Component({
   selector: 'app-checkout',
@@ -9,16 +10,30 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class CheckoutComponent implements OnInit {
 
   choosenProduct: any = [];
+  amountToPay: number = 0;
   
+
   orderForm = this.fb.group({
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
-    address: ["", Validators.required]
+    address: ["", Validators.required],
+
+    // Vad som behöver vara med i order till databasen
+    id: [0],
+    companyId: [30],
+    created: [Date],
+    createdBy: [null],
+    paymentMethod: ["Paypal"],
+    totalPrice: [0],
+    status: [0],
+    orderRows: []
   });
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.amountToPay = this.choosenProduct.price;
   }
 
   // Hämta data från localStorage
@@ -42,6 +57,7 @@ export class CheckoutComponent implements OnInit {
     return this.orderForm.get("address");
   }
 
+  // Bekräfta order
   submitOrder() {
     alert("Din beställning är nu på väg till dig 🎉")
   }

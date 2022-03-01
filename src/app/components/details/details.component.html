@@ -1,8 +1,8 @@
 <section>
     <h2>Om filmen</h2>
 
-    <section *ngFor="let p of product; let i = index">
-        <div *ngIf="this.product[i].name == choosenProduct.name">
+    <section *ngFor="let p of product">
+        <div *ngIf="this.productId == p.id">
             <h3> {{ this.p.name }} ({{ this.p.year }}) </h3>
             <img src="{{ p.imageUrl }}">
             <h3> Handling: {{ this.p.description }} </h3>

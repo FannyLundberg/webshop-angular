@@ -3,12 +3,10 @@
 
     <h3>Dina varor: </h3>
 
-    <section id="cartSection" *ngFor="let p of cartProduct; let i = index">
-        <!-- <div *ngIf="this.product[i].name == cartProduct.name"> -->
-            <h4> Titel: {{ p.name }} </h4>
-            <h4> Pris: {{ p.price }} </h4>
-        <!-- </div> -->
-    </section>
+    <div id="cartSection" *ngFor="let product of cartProduct">
+        <h4> Titel: {{ product.name }} </h4>
+        <h4> Pris: {{ product.price }} </h4>
+    </div>
 
     <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt <b>handla ↩</b></a>
 

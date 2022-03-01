@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/models/IProduct';
-import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,29 +8,18 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  product: IProduct[] = [];
-  cartProduct: any = [];
+  cartProduct: IProduct[] = [];
 
-  constructor(private service: ProductsService, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
-
-    this.service.getProduct();
-
-      this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
-        this.product = dataFromProductApi;
-
-        // Kör funktion för att hämta data från ls
-        this.getCartfromLs();
-      })
+    this.getCartfromLs();
   }  
 
   // Hämta data från localStorage
   getCartfromLs() {
     let cartObject = localStorage.getItem("productCart") || "[]";
     this.cartProduct = JSON.parse(cartObject);
-    console.log(cartObject);
-    console.log(this.cartProduct);
   }
   
 }

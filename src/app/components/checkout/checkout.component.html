@@ -1,7 +1,12 @@
 <section>
     <h2>Checkout</h2>
 
-    <h3>Summa x kronor</h3>
+    <h3>Summa x kronor </h3>
+
+    <div *ngFor="let product of choosenProduct">
+        <p>Hej</p>
+        <p> {{ product.price }} </p>
+    </div>
 
     <form [formGroup]="orderForm">
         <label for="firstName">Förnamn: </label><br>
