@@ -1,11 +1,11 @@
 <section>
-    <h2>Checkout</h2>
+    <h2>Din beställning</h2>
 
-    <h3>Summa x kronor </h3>
-
-    <div *ngFor="let product of choosenProduct">
-        <p>Hej</p>
-        <p> {{ product.price }} </p>
+    <div>
+        <h3 *ngIf="totalAmount > 0"> Total summa {{ totalAmount }} kronor</h3>
+        <h3 *ngIf="totalAmount == 0"> Du har inte valt några varor
+            <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt handla ↩</a>
+        </h3>
     </div>
 
     <form [formGroup]="orderForm">

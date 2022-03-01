@@ -21,5 +21,18 @@ export class ShoppingCartComponent implements OnInit {
     let cartObject = localStorage.getItem("productCart") || "[]";
     this.cartProduct = JSON.parse(cartObject);
   }
-  
+
+  // Ta bort produkt ur varukorgen och ls
+  removeProduct(i: number) {
+    
+    // Ta bort klickad produkt
+    this.cartProduct.splice(i, 1);
+
+    // Sätta listan till ls efter manipulering
+    localStorage.setItem("productCart", JSON.stringify(this.cartProduct));
+
+    // Hämta ut nya listan igen
+    this.getCartfromLs();
+  }
+
 }

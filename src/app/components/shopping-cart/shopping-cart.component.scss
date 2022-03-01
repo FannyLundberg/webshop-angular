@@ -12,7 +12,12 @@ h3 {
 
 #cartSection {
     margin-bottom: 5%;
-    border: 1px solid rgb(126, 126, 126);
+    padding: 2%;
+    background-color: rgb(19, 18, 18);
+}
+
+h5 {
+    color: rgb(190, 190, 190);
 }
 
 a {
@@ -27,4 +32,8 @@ a {
         box-shadow: white inset 2px;
         padding: 1.5%;
     }
+}
+
+aside {
+    margin-top: 8%;
 }

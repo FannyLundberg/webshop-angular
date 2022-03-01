@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { IOrder } from 'src/app/models/IOrder';
 import { IProduct } from 'src/app/models/IProduct';
 
 @Component({
@@ -9,37 +10,33 @@ import { IProduct } from 'src/app/models/IProduct';
 })
 export class CheckoutComponent implements OnInit {
 
-  choosenProduct: any = [];
-  amountToPay: number = 0;
-  
+  cartProduct: IProduct[] = [];
+  totalAmount: number = 0;
+  orderFormat: IOrder[] = [];
+
+  // URL som order ska till (tillagt i environments):
+  // orderURL
 
   orderForm = this.fb.group({
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
     address: ["", Validators.required],
-
-    // Vad som behöver vara med i order till databasen
-    id: [0],
-    companyId: [30],
-    created: [Date],
-    createdBy: [null],
-    paymentMethod: ["Paypal"],
-    totalPrice: [0],
-    status: [0],
-    orderRows: []
   });
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-
-    this.amountToPay = this.choosenProduct.price;
+    this.getCartfromLs();
   }
 
-  // Hämta data från localStorage
-  getProductfromLs() {
-    this.choosenProduct = localStorage.getItem("productDetails") || "[]";
-    this.choosenProduct = JSON.parse(this.choosenProduct);
+  // Hämta ut lista från localStorage för att visa belopp på beställningen
+  getCartfromLs() {
+    let cartObject = localStorage.getItem("productCart") || "[]";
+    this.cartProduct = JSON.parse(cartObject);
+
+    for (let i = 0; i < this.cartProduct.length; i++) {
+      this.totalAmount += this.cartProduct[i].price;
+    }
   }
 
   // Hämta förnamn

@@ -3,14 +3,17 @@
 
     <h3>Dina varor: </h3>
 
-    <div id="cartSection" *ngFor="let product of cartProduct">
+    <div id="cartSection" *ngFor="let product of cartProduct; let i = index">
         <h4> Titel: {{ product.name }} </h4>
-        <h4> Pris: {{ product.price }} </h4>
+        <h4> Pris: {{ product.price }} kr </h4>
+        <h5 (click)="removeProduct(i)">Ta bort produkt</h5>
     </div>
-
-    <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt <b>handla ↩</b></a>
 
     <div id="submitCart">
         <button><a [routerLink]="['/checkout']" routerLinkActive="active">Gå vidare till betalning</a></button>
     </div>
+
+    <aside>
+        <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt <b>handla ↩</b></a>
+    </aside>
 </section>
