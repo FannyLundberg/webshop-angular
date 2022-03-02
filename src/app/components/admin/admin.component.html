@@ -1,4 +1,15 @@
 <section>
-<h2> 👨‍💻 Hej Administratör 👩‍💻 </h2>
-<h3> Här är alla ordrar som är gjorda: </h3>
+    <h2> 👨‍💻 Hej Administratör 👩‍💻 </h2>
+    <h3> Här är alla ordrar som är gjorda: </h3>
+
+    <div *ngFor="let o of order; let i = index">
+        <h4> ID: {{ o.id }} </h4>
+        <p> Skapad: {{ o.created }} </p>
+        <p> Kund: {{ o.createdBy }} </p>
+        <p> Betalningssätt: {{ o.paymentMethod }} </p>
+        <p> Belopp: {{ o.totalPrice }} </p>
+        <p> Status: {{ o.status }} </p>
+        <p> Orderrader: {{ o.orderRows }} </p>
+        <h5>Ta bort order</h5>
+    </div>
 </section>

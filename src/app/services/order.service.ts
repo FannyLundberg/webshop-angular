@@ -11,9 +11,8 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   // Pusha order till databasen
-  orderProduct(order: any) {
-    console.log("Hej");
+  orderProduct(order: object) {
     return this.http
-    .post<IOrder[]>(environment.orderURL, order)
+    .post<IOrder[]>(environment.orderURL, order);
   }
 }

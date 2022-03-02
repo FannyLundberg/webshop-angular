@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IOrder } from 'src/app/models/IOrder';
 import { IProduct } from 'src/app/models/IProduct';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -13,24 +12,19 @@ export class CheckoutComponent implements OnInit {
 
   cartProduct: IProduct[] = [];
   totalAmount: number = 0;
-  orderFormat: IOrder[] = [];
+  totalProducts: any = 0;
   orderComplete = false;
-  orderList: any;
-
+  // productName: any = "";
+  
   orderForm = this.fb.group({
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
-    // address: ["", Validators.required],
   });
 
   constructor(private fb: FormBuilder, private service: OrderService) { }
 
   ngOnInit(): void {
     this.getCartfromLs();
-
-    // this.service.orderProduct().subscribe(data => {
-    //   this.orderList = data;
-    // })
   }
 
   // Hämta ut lista från localStorage för att visa belopp på beställningen
@@ -38,9 +32,21 @@ export class CheckoutComponent implements OnInit {
     let cartObject = localStorage.getItem("productCart") || "[]";
     this.cartProduct = JSON.parse(cartObject);
 
+    // Räkna ut totalsumman för valda varor
     for (let i = 0; i < this.cartProduct.length; i++) {
       this.totalAmount += this.cartProduct[i].price;
     }
+
+    // Räkna ut orderrader för valda varor
+    for (let i = 0; i < this.cartProduct.length; i++) {
+      this.totalProducts = this.cartProduct.length;
+    }
+
+    // // Skriva ut varje titel 
+    // for (let i = 0; i < this.cartProduct.length; i++) {
+    //   this.productName = this.cartProduct[i].name;
+    //   console.log(this.productName);
+    // }
   }
 
   // Hämta förnamn
@@ -53,29 +59,31 @@ export class CheckoutComponent implements OnInit {
     return this.orderForm.get("lastName");
   }
 
-  // Hämta adress
-  get address() {
-    return this.orderForm.get("address");
-  }
+  // // Hämta adress
+  // get address() {
+  //   return this.orderForm.get("address");
+  // }
 
   // Bekräfta order
   submitOrder() {
-    // alert("Din beställning är nu på väg till dig 🎉")
+
+    let name = this.orderForm.value.firstName + this.orderForm.value.lastName;
 
     const newFormData = { 
       id: 0, 
       companyId: 30,
       created: new Date,
-      createdBy: this.orderForm.value.firstName,
+      createdBy: name,
       paymentMethod: "PayPal",
       totalPrice: this.totalAmount,
       status: 0,
       orderRows: []
+      // orderRows: this.productName
+      // orderRows: [this.productName]
     };
     
     this.service.orderProduct(newFormData).subscribe(data => {
       this.orderComplete = true;
-      console.log(data);
     });
   }
 

@@ -2,13 +2,16 @@
     <h2>Din beställning</h2>
 
     <div>
-        <h3 *ngIf="totalAmount > 0"> Total summa {{ totalAmount }} kronor</h3>
+        <h3 *ngIf="totalProducts > 0"> Antal varor: {{ totalProducts }} </h3>
+        <h3 *ngIf="totalAmount > 0"> Total summa: {{ totalAmount }} kronor</h3>
         <h3 *ngIf="totalAmount == 0"> Du har inte valt några varor
             <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt handla ↩</a>
         </h3>
     </div>
 
     <form [formGroup]="orderForm">
+
+        <h3>Vänligen fyll i din information: </h3>
         <label for="firstName">Förnamn: </label><br>
         <input id="firstName" type="text" formControlName="firstName" placeholder="Obligatoriskt">
         
