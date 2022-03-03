@@ -1,7 +1,10 @@
+// import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { IOrder } from 'src/app/models/IOrder';
 import { IProduct } from 'src/app/models/IProduct';
 import { OrderService } from 'src/app/services/order.service';
+// import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-checkout',
@@ -14,8 +17,12 @@ export class CheckoutComponent implements OnInit {
   totalAmount: number = 0;
   totalProducts: any = 0;
   orderComplete = false;
-  // productName: any = "";
+  productName: string = "";
+  productId: number = 0;
+  productAmount: number = 0;
+  newFormData: IOrder[] = [];
   
+
   orderForm = this.fb.group({
     firstName: ["", Validators.required],
     lastName: ["", Validators.required],
@@ -32,21 +39,16 @@ export class CheckoutComponent implements OnInit {
     let cartObject = localStorage.getItem("productCart") || "[]";
     this.cartProduct = JSON.parse(cartObject);
 
-    // Räkna ut totalsumman för valda varor
+    // Totalsumma, namn och id för valda varor
     for (let i = 0; i < this.cartProduct.length; i++) {
       this.totalAmount += this.cartProduct[i].price;
-    }
-
-    // Räkna ut orderrader för valda varor
-    for (let i = 0; i < this.cartProduct.length; i++) {
+      this.productAmount = this.cartProduct[i].price;
       this.totalProducts = this.cartProduct.length;
+      this.productName = this.cartProduct[i].name;
+      this.productId = this.cartProduct[i].id;
+      console.log(this.productId)
     }
 
-    // // Skriva ut varje titel 
-    // for (let i = 0; i < this.cartProduct.length; i++) {
-    //   this.productName = this.cartProduct[i].name;
-    //   console.log(this.productName);
-    // }
   }
 
   // Hämta förnamn
@@ -67,7 +69,8 @@ export class CheckoutComponent implements OnInit {
   // Bekräfta order
   submitOrder() {
 
-    let name = this.orderForm.value.firstName + this.orderForm.value.lastName;
+    let name = this.orderForm.value.firstName + " " + this.orderForm.value.lastName;
+    // let orderRowsId = this.newFormData.id;
 
     const newFormData = { 
       id: 0, 
@@ -77,13 +80,19 @@ export class CheckoutComponent implements OnInit {
       paymentMethod: "PayPal",
       totalPrice: this.totalAmount,
       status: 0,
-      orderRows: []
-      // orderRows: this.productName
-      // orderRows: [this.productName]
+      orderRows: [
+        { 
+          id: Number(),
+          productId: this.productId,
+          product: null,
+          amount: this.productAmount,
+          orderId: Number()
+        }
+      ],
     };
-    
     this.service.orderProduct(newFormData).subscribe(data => {
       this.orderComplete = true;
+      console.log(data);
     });
   }
 

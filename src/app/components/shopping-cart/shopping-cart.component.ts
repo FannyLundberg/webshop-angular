@@ -9,7 +9,6 @@ import { IProduct } from 'src/app/models/IProduct';
 export class ShoppingCartComponent implements OnInit {
 
   cartProduct: IProduct[] = [];
-  // totalAmount: number = 0;
 
   constructor() { }
 

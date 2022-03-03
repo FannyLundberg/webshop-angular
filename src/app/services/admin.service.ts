@@ -24,4 +24,12 @@ export class AdminService {
     })
   }
 
+  // // Ta bort data från API med lagda ordrar
+  // deleteOrders(orderDelete: IOrder[]) {
+  //   const deleteOrder = environment.adminURL + orderDelete;
+
+  //   return this.http
+  //   .delete<IOrder[]>(deleteOrder);
+  // };
+
 }

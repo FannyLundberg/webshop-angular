@@ -6,5 +6,13 @@ export interface IOrder {
     paymentMethod: "Paypal";
     totalPrice: number;
     status: number;
-    orderRows: number;
+    orderRows: [
+        { 
+            id: number,
+            productId: number,
+            product: null,
+            amount: number,
+            orderId: number
+        }
+    ]
 }
