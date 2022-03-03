@@ -9,4 +9,14 @@ h2 {
 #divGenre {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+h3 {
+    cursor: pointer;
+}
+
+img {
+    width: 200px;
+    height: 250px;
 }

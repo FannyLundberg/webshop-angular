@@ -2,9 +2,18 @@
         <h2>Välj genre: </h2>
 
     <div id="divGenre">
-        <h3>Action</h3>
-        <h3>Thriller</h3>
-        <h3>Komedi</h3>
-        <h3>Sci-fi</h3>
+        <h3 (click)="showGenre()">Action</h3>
+        <h3 (click)="showGenre()">Thriller</h3>
+        <h3 (click)="showGenre()">Komedi</h3>
+        <h3 (click)="showGenre()">Sci-fi</h3>
+
+        <div *ngIf="genreAction">
+            <div *ngFor="let p of product; let i = index">
+                <h3> {{ p.name | titlecase }} </h3>
+                <img src="{{ p.imageUrl }}">
+                <p> {{ p.price }} kronor </p>
+            </div>
+        </div>
+        {{ genreAction }}
     </div>
 </section>

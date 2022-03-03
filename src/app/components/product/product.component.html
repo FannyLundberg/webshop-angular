@@ -2,7 +2,7 @@
 
 <section>
     <div *ngFor="let p of product; let i = index">
-        <h3> {{ p.name }} </h3>
+        <h3> {{ p.name | titlecase }} </h3>
         <img src="{{ p.imageUrl }}">
         <p> {{ p.price }} kronor </p>
         <a [routerLink]="['/product', p.id]" routerLinkActive="active">Läs mer</a>

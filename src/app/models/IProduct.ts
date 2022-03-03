@@ -5,4 +5,12 @@ export interface IProduct {
     price: number; 
     imageUrl: string;
     year: number;
-}
+    productCategory: [
+        [
+            {
+                category: null;
+                categoryId: number;
+            }
+        ]
+    ];
+};

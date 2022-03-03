@@ -46,9 +46,7 @@ export class CheckoutComponent implements OnInit {
       this.totalProducts = this.cartProduct.length;
       this.productName = this.cartProduct[i].name;
       this.productId = this.cartProduct[i].id;
-      console.log(this.productId)
     }
-
   }
 
   // Hämta förnamn
@@ -70,7 +68,6 @@ export class CheckoutComponent implements OnInit {
   submitOrder() {
 
     let name = this.orderForm.value.firstName + " " + this.orderForm.value.lastName;
-    // let orderRowsId = this.newFormData.id;
 
     const newFormData = { 
       id: 0, 
