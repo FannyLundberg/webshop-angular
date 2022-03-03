@@ -6,11 +6,9 @@ export interface IProduct {
     imageUrl: string;
     year: number;
     productCategory: [
-        [
-            {
-                category: null;
-                categoryId: number;
-            }
-        ]
-    ];
+        { 
+            category: null;
+            categoryId: number;
+        }
+    ]
 };

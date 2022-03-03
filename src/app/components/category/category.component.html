@@ -7,13 +7,10 @@
         <h3 (click)="showGenre()">Komedi</h3>
         <h3 (click)="showGenre()">Sci-fi</h3>
 
-        <div *ngIf="genreAction">
-            <div *ngFor="let p of product; let i = index">
-                <h3> {{ p.name | titlecase }} </h3>
-                <img src="{{ p.imageUrl }}">
-                <p> {{ p.price }} kronor </p>
-            </div>
-        </div>
-        {{ genreAction }}
+        <!-- <div *ngFor="let p of product; let i = index">
+            <h3> {{ p.name | titlecase }} </h3>
+            <img src="{{ p.imageUrl }}">
+            <p> {{ p.price }} kronor </p>
+        </div> -->
     </div>
 </section>

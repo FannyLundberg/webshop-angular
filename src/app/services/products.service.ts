@@ -22,7 +22,7 @@ export class ProductsService {
     .get<IProduct[]>(environment.productURL)
     .subscribe((dataFromProductApi) => {
       this.productData.next(dataFromProductApi);
-      console.log(dataFromProductApi);
+      // console.log(dataFromProductApi);
     })
   }
 
