@@ -59,11 +59,6 @@ export class CheckoutComponent implements OnInit {
     return this.orderForm.get("lastName");
   }
 
-  // // Hämta adress
-  // get address() {
-  //   return this.orderForm.get("address");
-  // }
-
   // Bekräfta order
   submitOrder() {
 

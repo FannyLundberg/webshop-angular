@@ -1,18 +1,26 @@
 section {
     width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 h2 {
     margin-bottom: 2%;
 }
 
-#divGenre {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+h3 {
+    width: 100vw;
 }
 
-h3 {
+#divProduct {
+    width: 40%;
+    height: 350px;
+    margin: 4%;
+    text-align: center;
+}
+
+h4 {
     cursor: pointer;
 }
 

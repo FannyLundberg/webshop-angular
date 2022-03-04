@@ -30,15 +30,6 @@
 
         <br><br>
 
-        <!-- <label for="address">Adress: </label><br>
-        <input id="address" type="text" formControlName="address" placeholder="Obligatoriskt">
-
-        <div *ngIf="orderForm.get('address')?.invalid && orderForm.get('address')?.touched">
-            <p *ngIf="orderForm.get('address')?.errors?.['required']">Vänligen ange din adress</p>
-        </div>
-
-        <br><br> -->
-
         <button type="submit" (click)="submitOrder()" [disabled]="orderForm.invalid">Beställ</button>
     </form>
 
