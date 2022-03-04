@@ -2,11 +2,46 @@
         <h2>Välj genre: </h2>
 
     <!-- <div id="divGenre">
-        <h3 (click)="showGenre()">Action</h3>
-        <h3 (click)="showGenre()">Thriller</h3>
-        <h3 (click)="showGenre()">Komedi</h3>
-        <h3 (click)="showGenre()">Sci-fi</h3>
-    </div> -->
+        <h3 (click)="showAction()">Action</h3>
+        <h3 (click)="showThriller()">Thriller</h3>
+        <h3 (click)="showComedy()">Komedi</h3>
+        <h3 (click)="showSciFi()">Sci-fi</h3>
+    </div>
+
+    <section id="sectionProductsGenre">
+        <div *ngIf="action">
+            <div *ngFor="let p of product; let i = index">
+                <div *ngIf="p.productCategory[0].categoryId == 5">
+                    <p> {{ p.name }} </p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="thriller">
+            <div *ngFor="let p of product; let i = index">
+                <div *ngIf="p.productCategory[0].categoryId == 6">
+                    <p> {{ p.name }} </p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="comedy">
+            <div *ngFor="let p of product; let i = index">
+                <div *ngIf="p.productCategory[0].categoryId == 7">
+                    <p> {{ p.name }} </p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="sciFi">
+            <div *ngFor="let p of product; let i = index">
+                <div *ngIf="p.productCategory[0].categoryId == 8">
+                    <p> {{ p.name }} </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
 
     <!-- <div id="divGenre">
         <h3 (click)="showAction()">Action</h3>
@@ -15,15 +50,14 @@
         <h3 (click)="showSciFi()">Sci-fi</h3>
     </div> -->
 
-    <!-- <div id="divGenre" *ngFor="let c of category; let i = index">
-        <h3 (click)="showGenre(i)"> {{ c.name }} </h3>
-    </div> -->
-
-    <div *ngFor="let p of product; let i = index">
-        <div *ngIf="p.productCategory[0].categoryId == 5">
-            <p> {{ p.name }} </p>
-        </div>
+    <div id="divGenre" *ngFor="let c of category; let i = index">
+        <h3 (click)="showGenre(c.id)"> {{ c.name }} </h3>
+        
     </div>
+
+    <p *ngFor="let p of productsShow"> {{ p.name }} </p>
+
+    
 
     
 

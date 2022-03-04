@@ -10,5 +10,6 @@ export interface IProduct {
             category: null;
             categoryId: number;
         }
+
     ]
 };

@@ -13,14 +13,33 @@ export class CategoryComponent implements OnInit {
 
   category: ICategory[] = [];
   product: IProduct[] = [];
-  productGenre: any[] = [];
-  genreAction: any[] = [];
-  genreThriller: any[] = [];
-  genreComedy: any[] = [];
-  genreSciFi: any[] = [];
-  // action = false;
+  action = false;
+  thriller = false;
+  comedy = false;
+  sciFi = false;
+  section = document.getElementById("sectionProductsGenre")?.innerText;
+  productsShow: IProduct[] = [];
 
   constructor(private categoryService: CategoryService, private productService: ProductsService) { }
+
+  showGenre(id: number) {
+    this.productsShow = [];
+    console.log(this.productsShow);
+    console.log(this.product);
+    console.log(this.category);
+
+    for (let u = 0; u < this.product.length; u++) {
+      console.log(this.product[u].productCategory);
+      for (let i = 0; i < this.category.length; i++) {
+        // if (this.product.productCategory[u].categoryId === id) {
+        //   this.productsShow.push(p);
+          
+          console.log(this.product[u].productCategory[i].categoryId)
+        }
+      }
+    // }
+    //)
+  }
 
   ngOnInit(): void {
     this.categoryService.categoryData$.subscribe((dataFromCategoryApi: ICategory[]) => {
@@ -34,6 +53,44 @@ export class CategoryComponent implements OnInit {
     })
     this.productService.getProduct();
   }
+
+  // showAction() {
+  //   this.section = "";
+  //   this.action = true;
+
+  //   // for (let i = 0; i < this.product.length; i++) {
+  //   //   if (this.product[0].productCategory[0].categoryId == 5) {
+  //   //     console.log()
+  //   //   }
+  //   // }
+
+  //   // this.product.forEach(p => {
+  //   //   console.log(p);
+  //   //   if (this.product.productCategory.categoryId == 5) {
+  //   //     console.log(p)
+  //   //   }
+  //   // });
+  // }
+
+  // showThriller() {
+  //   this.section = "";
+  //   this.thriller = true;
+  // }
+
+  // showComedy() {
+  //   this.section = "";
+  //   this.comedy = true;
+  // }
+
+  // showSciFi() {
+  //   this.section = "";
+  //   this.sciFi = true;
+  // }
+
+
+
+  
+
 
   // showGenre(i: number) {
   //   console.log(i); 
