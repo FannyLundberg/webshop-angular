@@ -7,7 +7,8 @@ export const environment = {
   productURL: "https://medieinstitutet-wie-products.azurewebsites.net/api/products",
   orderURL: "https://medieinstitutet-wie-products.azurewebsites.net/api/orders",
   adminURL: "https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=30",
-  categoryURL: "https://medieinstitutet-wie-products.azurewebsites.net/api/categories"
+  categoryURL: "https://medieinstitutet-wie-products.azurewebsites.net/api/categories",
+  searchURL: "https://medieinstitutet-wie-products.azurewebsites.net/api/search"
 };
 
 /*

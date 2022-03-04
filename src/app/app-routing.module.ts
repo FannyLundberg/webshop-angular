@@ -9,6 +9,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/product/product.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { SearchComponent } from './components/search/search.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: "shopping-cart", component: ShoppingCartComponent },
   { path: "checkout", component: CheckoutComponent },
   { path: "admin", component: AdminComponent },
+  { path: "search", component: SearchComponent },
   { path: "**", component: NotfoundComponent }
 ];
 

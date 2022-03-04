@@ -15,6 +15,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { ProductComponent } from './components/product/product.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     DetailsComponent,
     ProductComponent,
     AdminComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,8 @@
-<h2>Alla filmer</h2>
-
 <section>
+    <div id="divHeading">
+        <h2>Alla filmer</h2>
+    </div>
+
     <div *ngFor="let p of product; let i = index">
         <h3> {{ p.name | titlecase }} </h3>
         <img src="{{ p.imageUrl }}">

@@ -6,16 +6,15 @@ section {
 }
 
 div {
-    // border: 1px solid white;
     width: 40%;
     height: 350px;
     margin: 4%;
     text-align: center;
 }
 
-#divHeading {
+#divInput {
     width: 100vw;
-    height: 30px;
+    height: fit-content;
 }
 
 img {
@@ -31,8 +30,4 @@ a {
     &.active {
         text-decoration: underline;
     }
-}
-
-button {
-    background-color: rgb(71, 69, 69);
 }

@@ -5,5 +5,5 @@ export interface IProductData {
     
     products: IProduct[];
 
-    // getProduct(data: string): Observable<IProduct[]>;
+    getProduct(data: string): Observable<IProduct[]>;
 }

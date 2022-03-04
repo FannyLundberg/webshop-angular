@@ -1,0 +1,12 @@
+<section>
+    <div id="divInput">
+        <input type="text" placeholder="Sök" #search (input)="inputText(search.value)">
+    </div>
+
+    <div *ngFor="let product of searchProduct | async">
+        <h3> {{ product.name }} </h3>
+        <img src="{{ product.imageUrl }}">
+        <p> {{ product.price }} kronor </p>
+        <a [routerLink]="['/product', product.id]" routerLinkActive="active">Läs mer</a>
+    </div>
+</section>
