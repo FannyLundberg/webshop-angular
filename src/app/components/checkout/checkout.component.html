@@ -3,8 +3,8 @@
 
     <div>
         <h3 *ngIf="totalProducts > 0"> Antal varor: {{ totalProducts }} </h3>
-        <h3 *ngIf="totalAmount > 0"> Total summa: {{ totalAmount }} kronor</h3>
-        <h3 *ngIf="totalAmount == 0"> Du har inte valt några varor
+        <h3 *ngIf="totalPrice > 0"> Total summa: {{ totalPrice }} kronor</h3>
+        <h3 *ngIf="totalPrice == 0"> Du har inte valt några varor
             <a [routerLink]="['/product']" routerLinkActive="active">Fortsätt handla ↩</a>
         </h3>
     </div>
