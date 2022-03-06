@@ -20,7 +20,7 @@ export class AdminService {
     .get<IOrder[]>(environment.adminURL)
     .subscribe((dataFromOrderApi) => {
       this.orderData.next(dataFromOrderApi);
-      console.log(dataFromOrderApi);
+      // console.log(dataFromOrderApi);
     })
   }
 

@@ -36,32 +36,61 @@ export class CheckoutComponent implements OnInit {
     let cartObject = localStorage.getItem("productCart") || "[]";
     this.cartProduct = JSON.parse(cartObject);
 
-    // Totalsumma, namn och id för valda varor
     for (let i = 0; i < this.cartProduct.length; i++) {
       // Totalpris för ordern
       this.totalPrice += this.cartProduct[i].price;
-      // Antal produkter
+      // Antal produkter i ordern
       this.totalProducts = this.cartProduct.length;
-
-
-      // Pusha in produkter i ny lista för att kunna visa i orderRows
+      // ProduktId
       let objectId = this.cartProduct[i].id;
-      
-
-
-      // if (this.cartProduct[i].id == this.orderRows?.productId) {
-      //   console.log("ID finns redan");
-      //   this.amount + 1
-      // } else {
-      //   console.log("ID finns redan");
-      //   this.amount = 1
-      // }
-
+      // Antal av en produkt
       let objectAmount = this.amount;
-      // let objectPrice = this.amount;
+      // Pusha in i nya listan för att visa på orderRows
       let productOrder = {productId: objectId, amount: objectAmount}
       this.orderRowsList.push(productOrder);
-      console.log(this.orderRowsList);
+      
+      
+
+      // this.cartProduct.forEach((p) => {
+      //   for (let i = 0; i < cartObject.length; i++) {
+      //     if (p.id === this.orderRowsList[i].productId) {
+      //       let objectAmount = this.amount++;
+      //       let productAmount = {productId: 0, amount: objectAmount}
+      //       this.orderRowsList.push(productAmount);
+      //       ("Ej pusha objekt, plussa amount")
+      //     } else {
+      //       
+      //       ("Push objekt")
+      //     }
+      //   }
+      // })
+
+
+      // if (this.cartProduct[i].id === this.orderRowsList[i].productId) {
+      //   console.log("ID finns redan");
+      //   this.amount++
+      // } else {
+      //   console.log("ID finns inte");
+      //   this.amount = 1
+      //   // Pusha in produkter i ny lista för att kunna visa i orderRows
+      //   this.orderRowsList.push(productOrder);
+      // }
+
+      // this.orderRowsList = [];
+      // this.cartProduct.forEach((p) => {
+      //   for (let i = 0; i < this.cartProduct.length; i++) {
+      //     if (p.id === this.orderRowsList[i].productId) {
+      //       console.log("Pusha nytt objekt till listan")
+            
+      //     } else {
+      //       this.amount += 1;
+      //       console.log("Pusha inte ny, lägg på 1 amount")
+      //     }
+      //   }
+      // })
+      
+      
+      // console.log(this.orderRowsList);
     };
 
   }
@@ -91,7 +120,6 @@ export class CheckoutComponent implements OnInit {
       status: 0,
       orderRows: this.orderRowsList,
     };
-  
     this.service.orderProduct(newFormData).subscribe(data => {
       this.orderComplete = true;
       console.log(data);

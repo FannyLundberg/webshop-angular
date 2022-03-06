@@ -9,7 +9,7 @@
         <p><b> Betalningssätt:</b> {{ o.paymentMethod }} </p>
         <p><b>Belopp: </b> {{ o.totalPrice }} kronor</p>
         <p><b>Status: </b> {{ o.status }} </p>
-        <p><b>Orderrader:</b> {{ o.orderRows }} </p>
+        <p><b>Orderrader:</b> {{ o.orderRows | json }} </p>
         <button (click)="deleteOrder(o.id)">Ta bort order</button>
     </div>
 </section>

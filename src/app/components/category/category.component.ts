@@ -13,17 +13,17 @@ export class CategoryComponent implements OnInit {
 
   category: ICategory[] = [];
   product: IProduct[] = [];
-  productsShow: IProduct[] = [];
+  showProduct: IProduct[] = [];
 
   constructor(private categoryService: CategoryService, private productService: ProductsService) { }
 
   showGenre(id: number) {
-    this.productsShow = [];
+    this.showProduct = [];
 
     this.product.forEach((p) => {
       for (let i = 0; i < p.productCategory.length; i++) {
         if (p.productCategory[i].categoryId === id) {
-          this.productsShow.push(p);
+          this.showProduct.push(p);
         }
       }
     })
