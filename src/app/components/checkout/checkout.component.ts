@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IOrder } from 'src/app/models/IOrder';
+// import { IOrder } from 'src/app/models/IOrder';
 import { IOrderRows } from 'src/app/models/IOrderRows';
 import { IProduct } from 'src/app/models/IProduct';
 import { OrderService } from 'src/app/services/order.service';
@@ -16,14 +16,9 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalProducts: any = 0;
   orderComplete = false;
-  productId: number = 0;
-  product = null;
-  amount: number = 0;
-  id = Number();
-  orderId = Number();
-  newFormData: IOrder[] = [];
+  amount: number = 1;
   orderRows: IOrderRows | undefined;
-  orderRowsList: any[] = [];
+  orderRowsList: IOrderRows[] = [];
 
   orderForm = this.fb.group({
     firstName: ["", Validators.required],
@@ -43,31 +38,29 @@ export class CheckoutComponent implements OnInit {
 
     // Totalsumma, namn och id för valda varor
     for (let i = 0; i < this.cartProduct.length; i++) {
+      // Totalpris för ordern
       this.totalPrice += this.cartProduct[i].price;
+      // Antal produkter
       this.totalProducts = this.cartProduct.length;
-      // this.productId = this.cartProduct[i].id;
-    };
 
-    // // Pusha in filmer från ls i lista för att kunna visa i orderRows
-    // this.cartProduct.forEach((product) => {
-    //     if (this.cartProduct.length > 0) {
-    //       this.orderRowsList.push(product.id);
-    //       console.log(this.orderRowsList);
-    //     }
-    // });
 
-    // // Pusha in filmer från ls i lista för att kunna visa i orderRows
-    // this.cartProduct.forEach((product) => {
-    //   if (this.cartProduct.length > 0) {
-    //     this.orderRowsList.push(product.id, product.price);
-    //     console.log(this.orderRowsList);
-    //   }
-    // });
+      // Pusha in produkter i ny lista för att kunna visa i orderRows
+      let objectId = this.cartProduct[i].id;
+      
 
-    for (let i = 0; i < this.cartProduct.length; i++) {
-      let productObjectId = this.cartProduct[i].id;
-      let productObjectPrice = this.cartProduct[i].price;
-      this.orderRowsList.push(productObjectId + productObjectPrice);
+
+      // if (this.cartProduct[i].id == this.orderRows?.productId) {
+      //   console.log("ID finns redan");
+      //   this.amount + 1
+      // } else {
+      //   console.log("ID finns redan");
+      //   this.amount = 1
+      // }
+
+      let objectAmount = this.amount;
+      // let objectPrice = this.amount;
+      let productOrder = {productId: objectId, amount: objectAmount}
+      this.orderRowsList.push(productOrder);
       console.log(this.orderRowsList);
     };
 
@@ -96,43 +89,14 @@ export class CheckoutComponent implements OnInit {
       paymentMethod: "PayPal",
       totalPrice: this.totalPrice,
       status: 0,
-      orderRows: 
-    // this.orderRowsList.forEach((product) => {  
-    //       {
-    //         this.id = Number(),
-    //         this.productId = product.id,
-    //         this.product = null;
-    //         this.amount = 1,
-    //         this.orderId = Number()
-    //       }
-    //       console.log(product);
-    // })
-      [    
-        {
-            id: Number(),
-            productId: this.productId,
-            product: null,
-            amount: 1,
-            orderId: Number()
-          }
-      ]
+      orderRows: this.orderRowsList,
     };
   
-    this.service.orderProduct(this.newFormData).subscribe(data => {
+    this.service.orderProduct(newFormData).subscribe(data => {
       this.orderComplete = true;
       console.log(data);
     });
   }
-
-  // loopOrderRows() {
-  //   for (let i = 0; i < this.orderRowsList.length; i++) {
-  //     this.id = Number()
-  //     this.productId = this.productId
-  //     this.product = null,
-  //     this.amount = 1,
-  //     this.orderId = Number()
-  //   };
-  // }
 
 }
 
