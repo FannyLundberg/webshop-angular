@@ -3,13 +3,13 @@
     <h3> Här är alla ordrar som är gjorda: </h3>
 
     <div *ngFor="let o of order; let i = index">
-        <h4> ID: {{ o.id }} </h4>
-        <p> Skapad: {{ o.created }} </p>
-        <p> Kund: {{ o.createdBy }} </p>
-        <p> Betalningssätt: {{ o.paymentMethod }} </p>
-        <p> Belopp: {{ o.totalPrice }} </p>
-        <p> Status: {{ o.status }} </p>
-        <p> Orderrader: {{ o.orderRows }} </p>
-        <!-- <h5 (click)="deleteOrder(i)">Ta bort order</h5> -->
+        <h4>ID: {{ o.id }} </h4>
+        <p><b>Skapad:</b> {{ o.created | date: "medium" }} </p>
+        <p><b>Kund: </b> {{ o.createdBy }} </p>
+        <p><b> Betalningssätt:</b> {{ o.paymentMethod }} </p>
+        <p><b>Belopp: </b> {{ o.totalPrice }} kronor</p>
+        <p><b>Status: </b> {{ o.status }} </p>
+        <p><b>Orderrader:</b> {{ o.orderRows }} </p>
+        <button (click)="deleteOrder(o.id)">Ta bort order</button>
     </div>
 </section>

@@ -24,12 +24,11 @@ export class AdminService {
     })
   }
 
-  // // Ta bort data från API med lagda ordrar
-  // deleteOrders(orderDelete: IOrder[]) {
-  //   const deleteOrder = environment.adminURL + orderDelete;
-
-  //   return this.http
-  //   .delete<IOrder[]>(deleteOrder);
-  // };
+  // Ta bort data från API med lagda ordrar
+  deleteOrders(id: number) {
+    this.http
+    .delete(environment.orderURL + "/" + id + "/?companyId=30")
+    .subscribe(() => this.getOrder())
+  };
 
 }

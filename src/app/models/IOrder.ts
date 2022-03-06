@@ -1,3 +1,5 @@
+import { IOrderRows } from "./IOrderRows";
+
 export interface IOrder {
     id: number;
     companyId: 30;
@@ -6,13 +8,5 @@ export interface IOrder {
     paymentMethod: "Paypal";
     totalPrice: number;
     status: number;
-    orderRows: [
-        { 
-            id: number,
-            productId: number,
-            product: null,
-            amount: number,
-            orderId: number
-        }
-    ]
+    orderRows: IOrderRows[];
 }

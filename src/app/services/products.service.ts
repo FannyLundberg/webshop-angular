@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IProduct } from '../models/IProduct';
-// import { IProductData } from '../models/IProductData';
-// import { IProducts } from '../models/IProducts';
 
 @Injectable({
   providedIn: 'root'
