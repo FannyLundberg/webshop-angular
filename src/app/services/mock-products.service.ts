@@ -6,28 +6,43 @@ import { IProduct } from '../models/IProduct';
   providedIn: 'root'
 })
 export class MockProductsService {
+  
   private productData = new Subject<IProduct[]>();
   productData$ = this.productData.asObservable();
-  
-  private testData: IProduct[] = [
-    // (711,
-    // "Hide and seek",
-    // "Denna film handlar om...",
-    // 159,
-    // "Finns ingen poster",
-    // 2005,
-    // [
-    //     { 
-    //         category: null,
-    //         categoryId: 6
-    //     }
 
-    // ]
-    // )]
-  ]
+  // // ngOnInit() {
+  //   private testData: IProduct[] = [
+  //     { 
+  //       id: 0, 
+  //       companyId: 10001,
+  //       created: 19910811,
+  //       createdBy: "Testperson",
+  //       paymentMethod: "Kontant",
+  //       totalPrice: 199,
+  //       status: 11,
+  //       orderRows: [],
+  //     };
+  //   ]
+     
+testData: IProduct[] = {
+    id: 0,
+    name: "string",
+    description: "string",
+    price: 0, 
+    imageUrl: "string",
+    year: 1991,
+    productCategory: [
+        { 
+            category: null,
+            categoryId: 0,
+        }
+
+    ]
+}
+
 
   getTestData() {
-    this.productData.next(this.testData)
+    // this.productData.next(this.testData)
   }
 
 }
