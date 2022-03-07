@@ -41,40 +41,31 @@ export class CheckoutComponent implements OnInit {
       this.totalPrice += this.cartProduct[i].price;
       // Antal produkter i ordern
       this.totalProducts = this.cartProduct.length;
+    
       // ProduktId
-      let objectId = this.cartProduct[i].id;
+      // let objectId = this.cartProduct[i].id;
       // Antal av en produkt
-      let objectAmount = this.amount;
+      
       // Pusha in i nya listan för att visa på orderRows
-      let productOrder = {productId: objectId, amount: objectAmount}
-      this.orderRowsList.push(productOrder);
-      
-      
-
-      // this.cartProduct.forEach((p) => {
-      //   for (let i = 0; i < cartObject.length; i++) {
-      //     if (p.id === this.orderRowsList[i].productId) {
-      //       let objectAmount = this.amount++;
-      //       let productAmount = {productId: 0, amount: objectAmount}
-      //       this.orderRowsList.push(productAmount);
-      //       ("Ej pusha objekt, plussa amount")
-      //     } else {
-      //       
-      //       ("Push objekt")
-      //     }
-      //   }
-      // })
-
+      // let productOrder = {productId: objectId, amount: objectAmount}
+      // this.orderRowsList.push(productOrder);
+    
 
       // if (this.cartProduct[i].id === this.orderRowsList[i].productId) {
       //   console.log("ID finns redan");
-      //   this.amount++
+      //   let objectAmount = this.amount++
+      //   let objectId = this.cartProduct[i].id;
+      //   let productOrder = {productId: objectId, amount: objectAmount}
+      //   this.orderRowsList.push(productOrder);
       // } else {
       //   console.log("ID finns inte");
-      //   this.amount = 1
-      //   // Pusha in produkter i ny lista för att kunna visa i orderRows
-      //   this.orderRowsList.push(productOrder);
-      // }
+        let objectAmount = this.amount = 1
+        let objectId = this.cartProduct[i].id;
+        let productOrder = {productId: objectId, amount: objectAmount}
+        // Pusha in produkter i ny lista för att kunna visa i orderRows
+        this.orderRowsList.push(productOrder);
+      
+    };
 
       // this.orderRowsList = [];
       // this.cartProduct.forEach((p) => {
@@ -89,9 +80,7 @@ export class CheckoutComponent implements OnInit {
       //   }
       // })
       
-      
       // console.log(this.orderRowsList);
-    };
 
   }
 
@@ -107,6 +96,42 @@ export class CheckoutComponent implements OnInit {
 
   // Bekräfta order
   submitOrder() {
+
+    let objectAmount = this.amount;
+
+
+    //   for (let i = 0; i < this.cartProduct.length; i++) {
+    //     for (let j = 0; j < this.orderRowsList.length; j++)
+    //       if (this.cartProduct[i].id == this.orderRowsList[j].productId) {
+    //         let objectAmount = this.amount++;
+    //         let productAmount = {productId: 0, amount: objectAmount}
+    //         this.orderRowsList.push(productAmount);
+    //         console.log("Ej pusha objekt, plussa amount");
+            
+    //       } else {
+    //         objectAmount = this.amount;
+    //         let objectId = this.cartProduct[i].id;
+    //         let productAmount = {productId: objectId, amount: objectAmount}
+    //         this.orderRowsList.push(productAmount);
+    //         console.log("Pusha objekt");
+    //       }
+    // }
+
+    // for (let i = 0; i < this.cartProduct.length; i++) {
+    //   for (let j = 0; j < this.orderRowsList.length; j++) {
+
+    //   // ProduktId
+    //   let objectId = this.cartProduct[i].id;
+    //   let orderRowObejctId = this.orderRowsList[j].productId;
+
+    //   if (objectId == orderRowObejctId) {
+    //     console.log("Hamnar i if-sats")
+    //   } else {
+    //     console.log("Hamnar i else")
+    //   }
+
+    //   };
+    // };
 
     let name = this.orderForm.value.firstName + " " + this.orderForm.value.lastName;
 
