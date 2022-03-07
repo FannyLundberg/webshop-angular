@@ -41,7 +41,28 @@ export class CheckoutComponent implements OnInit {
       this.totalPrice += this.cartProduct[i].price;
       // Antal produkter i ordern
       this.totalProducts = this.cartProduct.length;
+      // ProductId
+      let objectId = this.cartProduct[i].id;
+      let objectAmount = this.amount
+      let productOrder = {productId: objectId, amount: objectAmount}
+      // Pusha in produkter i ny lista för att kunna visa i orderRows
+      this.orderRowsList.push(productOrder);
+
+      // let objectAmount1 = this.amount
+      // let objectAmountPlus = this.amount
+
+      // let productOrder1 = {productId: objectId, amount: objectAmount1}
+      // let productOrder2 = {productId: objectId, amount: objectAmountPlus}
     
+      // // for (let j = 0; j < this.orderRowsList.length; j++) {
+
+      //   if (this.cartProduct[i].id == this.orderRowsList[i].productId) {
+      //     console.log("Samma id finns")
+      //     this.orderRowsList.push(productOrder1);
+      //   } else {
+      //     this.orderRowsList.push(productOrder2);
+      //   }
+
       // ProduktId
       // let objectId = this.cartProduct[i].id;
       // Antal av en produkt
@@ -59,12 +80,11 @@ export class CheckoutComponent implements OnInit {
       //   this.orderRowsList.push(productOrder);
       // } else {
       //   console.log("ID finns inte");
-        let objectAmount = this.amount = 1
-        let objectId = this.cartProduct[i].id;
-        let productOrder = {productId: objectId, amount: objectAmount}
+        
+        // let productOrder = {productId: objectId, amount: objectAmount1}
         // Pusha in produkter i ny lista för att kunna visa i orderRows
-        this.orderRowsList.push(productOrder);
-      
+        // this.orderRowsList.push(productOrder);
+      // }
     };
 
       // this.orderRowsList = [];
@@ -97,7 +117,7 @@ export class CheckoutComponent implements OnInit {
   // Bekräfta order
   submitOrder() {
 
-    let objectAmount = this.amount;
+    // let objectAmount = this.amount;
 
 
     //   for (let i = 0; i < this.cartProduct.length; i++) {
