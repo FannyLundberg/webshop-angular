@@ -49,21 +49,36 @@ export class CheckoutComponent implements OnInit {
       // Pusha in produkter i ny lista för att kunna visa i orderRows
       this.newListfromLs.push(objectId);
 
-      for (let u = 0; u < this.newListfromLs.length; u++) {
+      // console.log(this.orderRowsList)
+      // console.log(this.newListfromLs)
 
+      for (let j = 0; j < this.newListfromLs.length; j++) {
 
-        if (this.cartProduct[i].id !== this.newListfromLs[u].productId) {
-          console.log("Hamnar i if-sats" + this.amount++)
+        if (this.cartProduct[i].id !== this.newListfromLs[j]) {
+          
+          this.orderRowsList = [];
+
+          console.log("Hamnar i if")
+          console.log(this.cartProduct[i].id)
+          console.log(this.newListfromLs[j])
+          // ProductId
+          let objectId = this.cartProduct[i].id;
+          // Antal produkter av en sort
+          let objectAmount = this.amount
+          // Pusha in produkter i ny lista för att kunna visa i orderRows
+          let productOrder = {productId: objectId, amount: objectAmount}
+          this.orderRowsList.push(productOrder);
+          console.log(this.orderRowsList)
         } else {
+          let objectId = this.cartProduct[i].id;
+          // Antal produkter av en sort
+          let objectAmount = this.amount++
+          // Pusha in produkter i ny lista för att kunna visa i orderRows
+          let productOrder = {productId: objectId, amount: objectAmount}
+          this.orderRowsList.push(productOrder);
+          console.log(this.orderRowsList)
           console.log("Hamnar i else")
-            // ProductId
-            let objectId = this.cartProduct[i].id;
-            // Antal produkter av en sort
-            let objectAmount = this.amount
-            // Pusha in produkter i ny lista för att kunna visa i orderRows
-            let productOrder = {productId: objectId, amount: objectAmount}
-            this.orderRowsList.push(productOrder);
-            console.log(this.orderRowsList)
+            
         }
         console.log(this.orderRowsList)
         console.log(this.newListfromLs)
