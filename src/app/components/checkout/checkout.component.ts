@@ -19,6 +19,7 @@ export class CheckoutComponent implements OnInit {
   amount: number = 1;
   orderRows: IOrderRows | undefined;
   orderRowsList: IOrderRows[] = [];
+  newListfromLs: any[] = [];
 
   orderForm = this.fb.group({
     firstName: ["", Validators.required],
@@ -39,14 +40,47 @@ export class CheckoutComponent implements OnInit {
     for (let i = 0; i < this.cartProduct.length; i++) {
       // ProductId
       let objectId = this.cartProduct[i].id;
+      // Antal varor totalt 
+      this.totalProducts = this.cartProduct.length;
+      // Totalt pris
+      this.totalPrice += this.cartProduct[i].price;
       // Antal produkter av en sort
-      let objectAmount = this.amount
+      // let objectAmount = this.amount
       // Pusha in produkter i ny lista för att kunna visa i orderRows
-      let productOrder = {productId: objectId, amount: objectAmount}
-      this.orderRowsList.push(productOrder);
+      this.newListfromLs.push(objectId);
 
+      for (let u = 0; u < this.newListfromLs.length; u++) {
+
+
+        if (this.cartProduct[i].id !== this.newListfromLs[u].productId) {
+          console.log("Hamnar i if-sats" + this.amount++)
+        } else {
+          console.log("Hamnar i else")
+            // ProductId
+            let objectId = this.cartProduct[i].id;
+            // Antal produkter av en sort
+            let objectAmount = this.amount
+            // Pusha in produkter i ny lista för att kunna visa i orderRows
+            let productOrder = {productId: objectId, amount: objectAmount}
+            this.orderRowsList.push(productOrder);
+            console.log(this.orderRowsList)
+        }
+        console.log(this.orderRowsList)
+        console.log(this.newListfromLs)
+      }
     }
 
+
+    // for (let i = 0; i < this.cartProduct.length; i++) {
+    //   // ProductId
+    //   let objectId = this.cartProduct[i].id;
+    //   // Antal produkter av en sort
+    //   let objectAmount = this.amount
+    //   // Pusha in produkter i ny lista för att kunna visa i orderRows
+    //   let productOrder = {productId: objectId, amount: objectAmount}
+    //   this.orderRowsList.push(productOrder);
+
+    // }
     // if (this.cartProduct[i].id === this.orderRowsList[i].productId) {
       //   console.log("ID finns redan");
       //   let objectAmount = this.amount++
@@ -67,13 +101,13 @@ export class CheckoutComponent implements OnInit {
         //     }
         //   }
         // })
-        for (let i = 0; i < this.cartProduct.length; i++) {
-          for (let u = 0; u < this.orderRowsList.length; u++) {
+        // for (let i = 0; i < this.cartProduct.length; i++) {
+        //   for (let u = 0; u < this.orderRowsList.length; u++) {
 
-            if (this.cartProduct[i].id !== this.orderRowsList[u].productId) {
-              console.log("Hamnar i if-satsen");
+        //     if (this.cartProduct[i].id !== this.orderRowsList[u].productId) {
+        //       console.log("Hamnar i if-satsen");
               
-            } 
+        //     } 
             // else {
             //   // console.log("Hamnar i else");
             // }
@@ -87,8 +121,8 @@ export class CheckoutComponent implements OnInit {
             // let productOrder = {productId: objectId, amount: objectAmount}
             // this.orderRowsList.push(productOrder);
 
-          }
-        }
+        //   }
+        // }
 
       // let objectAmount1 = this.amount
       // let objectAmountPlus = this.amount
