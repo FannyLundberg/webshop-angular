@@ -10,7 +10,6 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
 
   product: IProduct[] = [];
-  // name: string = "";
 
   constructor(private service: ProductsService) { }
 

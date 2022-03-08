@@ -3,7 +3,7 @@
     <a [routerLink]="['/product']" routerLinkActive="active">Se alla produkter</a>
 </section>
 
-<section>
+<!-- <section>
     <div>
         <h3> {{ product[0].name }} </h3>
         <img src="{{ product[0].imageUrl }}">
@@ -22,5 +22,29 @@
     <div>
         <h3> {{ product[13].name }} </h3>
         <img src="{{ product[13].imageUrl }}">
+    </div>
+</section>-->
+
+<section >
+    <div id="wrapperProducts" *ngFor="let p of product; let i = index">
+        <div>
+            <h3 *ngIf="i == 0"> {{ p.name | titlecase }} </h3>
+            <img *ngIf="i == 0" src="{{ p.imageUrl }}">
+        </div>
+
+        <div>
+            <h3 *ngIf="i == 17"> {{ p.name | titlecase }} </h3>
+            <img *ngIf="i == 17" src="{{ p.imageUrl }}">
+        </div>
+
+        <div>
+            <h3 *ngIf="i == 9"> {{ p.name | titlecase }} </h3>
+            <img *ngIf="i == 9" src="{{ p.imageUrl }}">
+        </div>
+
+        <div>
+            <h3 *ngIf="i == 13"> {{ p.name | titlecase }} </h3>
+            <img *ngIf="i == 13" src="{{ p.imageUrl }}">
+        </div>
     </div>
 </section>
