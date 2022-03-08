@@ -47,48 +47,200 @@ export class CheckoutComponent implements OnInit {
       // Pusha in i ny lista för att kunna jämföra vad som ska skrivas ut
       this.newListfromLs.push(objectId);
 
+      let objectAmount = this.amount
+      // Pusha in produkter i ny lista för att kunna visa i orderRows
+      let productOrder = {productId: objectId, amount: objectAmount}
+      this.orderRowsList.push(productOrder);
+
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
       
+      // for (let j = 0; j < this.newListfromLs.length; j++) {
+      //   if (objectId !== this.orderRowsList[i].productId) {
+      //     this.amount++
+      //     console.log("Hamnar i if")
+      //   } else {
+      //     this.orderRowsList.push(productOrder);
+      //     console.log("Hamnar i else")
+      //   }
+      // }
 
-      for (let j = 0; j < this.newListfromLs.length; j++) {
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+      
+      // for (let j = 0; j < this.newListfromLs.length; j++) {
+        // this.amount = 1;
 
+        // if (this.cartProduct[i].id !== this.newListfromLs[i].id) {
+        //   console.log("Hamnar i if-sats")
+        //   this.amount = 1;
+        //   let objectAmount = (this.amount++);
+        //   // Pusha in produkter i ny lista för att kunna visa i orderRows
+        //   let productOrder = {productId: objectId, amount: objectAmount}
+        //   this.orderRowsList.push(productOrder);
+
+        //   console.log(this.orderRowsList)
+        //   // return 
+        // } else if (this.cartProduct[i].id == this.newListfromLs[i].id) {
+        //   this.amount = 1;
+        //   // let objectAmount = this.amount = 1;
+        //   // let productOrder = {productId: 0, amount: objectAmount}
+        //   // this.orderRowsList.push(productOrder);
+        //   console.log("Hamnar i else if-sats")
+        //   // return
+        // } else {
+        //   console.log("Hamnar i else-sats")
+        // }
+      // }
+
+      /////////////////////////////////////////////////////////////////////
+      //// Detta gör att den räknar men räknar en vara två gånger /////////
+      /////////////////////////////////////////////////////////////////////
+
+      // for (let j = 0; j < this.newListfromLs.length; j++) {
+
+      //   if (this.cartProduct[i].id !== this.newListfromLs[j]) {
+      //     console.log("Hamnar i if-sats")
+      //     let objectAmount = (this.amount = 1);
+      //     // Pusha in produkter i ny lista för att kunna visa i orderRows
+      //     let productOrder = {productId: objectId, amount: objectAmount}
+      //     this.orderRowsList.push(productOrder);
+
+      //     console.log(this.orderRowsList)
+      //     return 
+      //   } else {
+      //     this.amount++
+      //     console.log("Hamnar i if-sats")
+      //   }
+      // }
+
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+      // for (let j = 0; j < this.orderRowsList.length; j++) {
+      //   console.log(this.orderRowsList)
+      // }
+
+      // // Antal produkter av en sort
+      // let objectAmount = this.amount
+      // // Pusha in produkter i ny lista för att kunna visa i orderRows
+      // let productOrder = {productId: objectId, amount: objectAmount}
+      // this.orderRowsList.push(productOrder);
+
+
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+
+      // for (let j = 0; j < this.orderRowsList.length; j++) {
+      //   if (this.newListfromLs.some((movie) => movie.id === objectId)) {
+      //     this.amount = 1
+      //     let objektAmount1 = this.amount = 1;
+      //     console.log("Hamnar i if")
+    
+      //     // Pusha in produkter i ny lista för att kunna visa i orderRows
+      //     let productOrder1 = {productId: objectId, amount: objektAmount1}
+      //     this.orderRowsList.push(productOrder1);
+      //   } else {
+      //     console.log("Hamnar i else")
+      //     // for (let j = 0; j < this.orderRowsList.length; j++) {
+      //       // if (this.orderRowsList[j].productId === objectId) {
+      //         let objektAmount2 = this.amount++;
+      //         console.log("Hamnar i elsens if")
+      //         let productOrder2 = {productId: objectId, amount: objektAmount2}
+      //         this.orderRowsList.push(productOrder2);
+      //     }
+      //     // }
+
+      // }
+
+
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+
+      // for (let j = 0; j < this.newListfromLs.length; j++) {
+
+      //   if (this.cartProduct[i].id == this.newListfromLs[j]) {
+      //       console.log("Hamnar i if1" + " " + this.cartProduct[i].id)
+            
+      //       // this.newListfromLs = [];
+      //       this.orderRowsList = [];
+  
+      //       let objectId1 = this.cartProduct[i].id;
+      //       // Antal produkter av en sort
+            
+      //       let objektAmount1 = this.amount = 1;
+  
+      //       // Pusha in produkter i ny lista för att kunna visa i orderRows
+      //       let productOrder1 = {productId: objectId1, amount: objektAmount1}
+      //       this.orderRowsList.push(productOrder1);
+            
+      //       return 
+      //   }  else {
+      //     console.log("Hamnar i else1" + " " + this.cartProduct[i].id)
+      //   }
         
-        // this.amount = 0;
+      //   for (let k = 0; k < this.orderRowsList.length; k++) {
+      //     if (this.cartProduct[i].id == this.orderRowsList[k].productId) {
+            
+      //       console.log("Hamnar i if2" + " " + this.cartProduct[i].id)
 
-        if (this.cartProduct[i].id !== this.newListfromLs[j]) {
+      //       let objektAmount2 = this.amount++;
 
-          this.newListfromLs = [];
-          // this.orderRowsList = [];
+      //       let productOrder2 = {productId: objectId, amount: objektAmount2}
+      //       this.orderRowsList.push(productOrder2);
+      //       // return
 
-          let objectId = this.cartProduct[i].id;
-          // Antal produkter av en sort
+      //     } else {
+      //       console.log("Hamnar i else2" + " " + this.cartProduct[i].id)
+      //       return
+      //     }
+      //   }
+      //////////////////////////////////////////////////////////
+      //////////////////////////////////////////////////////////
+
+        // // this.amount = 0;
+        // console.log(this.newListfromLs);
+
+        // if (this.cartProduct[i].id !== this.newListfromLs[j]) {
           
-          let objektAmount = this.amount++
+        //   console.log("Hamnar i if" + " " + this.cartProduct[i].id)
+          
+        //   // this.newListfromLs = [];
+        //   this.orderRowsList = [];
 
-          // Pusha in produkter i ny lista för att kunna visa i orderRows
-          let productOrder = {productId: objectId, amount: objektAmount}
-          this.orderRowsList.push(productOrder);
+        //   let objectId1 = this.cartProduct[i].id;
+        //   // Antal produkter av en sort
+          
+        //   let objektAmount1 = this.amount = 1;
 
-          return
+        //   console.log(this.amount)
 
-        } else {
+        //   // Pusha in produkter i ny lista för att kunna visa i orderRows
+        //   let productOrder1 = {productId: objectId1, amount: objektAmount1}
+        //   this.orderRowsList.push(productOrder1);
+          
+        //   // return 
 
-          this.newListfromLs = [];
-          // this.orderRowsList = [];
+        // } else {
 
-          // ProductId
-          let objectId = this.cartProduct[i].id;
+        //   // this.orderRowsList = [];
+        //   console.log("Hamnar i else" + " " + this.cartProduct[i].id)
+        //   // this.newListfromLs = [];
+        //   // this.orderRowsList = [];
 
-          // Antal produkter av en sort
-          this.amount = 1;
+        //   // ProductId
+        //   let objectId2 = this.cartProduct[i].id;
 
-          // Pusha in produkter i ny lista för att kunna visa i orderRows
-          let productOrder = {productId: objectId, amount: this.amount}
-          this.orderRowsList.push(productOrder);
+        //   // Antal produkter av en sort
+        //   let objektAmount2 = this.amount++;
 
-          // return
-        }
-        
-      }
+        //   // // Pusha in produkter i ny lista för att kunna visa i orderRows
+        //   let productOrder2 = {productId: objectId2, amount: objektAmount2}
+        //   this.orderRowsList.push(productOrder2);
+
+        //   // return 
+        // } 
+        // return
+      // }
       
     }
 

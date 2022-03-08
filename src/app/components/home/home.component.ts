@@ -10,13 +10,16 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
 
   product: IProduct[] = [];
+  productsRead: boolean = false;
 
   constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
     this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
       this.product = dataFromProductApi;
-      // this.name = this.product[0].name;
+      
+      // När produkterna är inlästa, ändra till true
+      this.productsRead = true;
     })
     this.service.getProduct();
   }
