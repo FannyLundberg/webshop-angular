@@ -44,48 +44,55 @@ export class CheckoutComponent implements OnInit {
       this.totalProducts = this.cartProduct.length;
       // Totalt pris
       this.totalPrice += this.cartProduct[i].price;
-      // Antal produkter av en sort
-      // let objectAmount = this.amount
-      // Pusha in produkter i ny lista för att kunna visa i orderRows
+      // Pusha in i ny lista för att kunna jämföra vad som ska skrivas ut
       this.newListfromLs.push(objectId);
 
-      // console.log(this.orderRowsList)
-      // console.log(this.newListfromLs)
+      
 
       for (let j = 0; j < this.newListfromLs.length; j++) {
 
-        if (this.cartProduct[i].id !== this.newListfromLs[j]) {
-          
-          this.orderRowsList = [];
+        
+        // this.amount = 0;
 
-          console.log("Hamnar i if")
-          console.log(this.cartProduct[i].id)
-          console.log(this.newListfromLs[j])
+        if (this.cartProduct[i].id !== this.newListfromLs[j]) {
+
+          this.newListfromLs = [];
+          // this.orderRowsList = [];
+
+          let objectId = this.cartProduct[i].id;
+          // Antal produkter av en sort
+          
+          let objektAmount = this.amount++
+
+          // Pusha in produkter i ny lista för att kunna visa i orderRows
+          let productOrder = {productId: objectId, amount: objektAmount}
+          this.orderRowsList.push(productOrder);
+
+          return
+
+        } else {
+
+          this.newListfromLs = [];
+          // this.orderRowsList = [];
+
           // ProductId
           let objectId = this.cartProduct[i].id;
+
           // Antal produkter av en sort
-          let objectAmount = this.amount
+          this.amount = 1;
+
           // Pusha in produkter i ny lista för att kunna visa i orderRows
-          let productOrder = {productId: objectId, amount: objectAmount}
+          let productOrder = {productId: objectId, amount: this.amount}
           this.orderRowsList.push(productOrder);
-          console.log(this.orderRowsList)
-        } else {
-          let objectId = this.cartProduct[i].id;
-          // Antal produkter av en sort
-          let objectAmount = this.amount++
-          // Pusha in produkter i ny lista för att kunna visa i orderRows
-          let productOrder = {productId: objectId, amount: objectAmount}
-          this.orderRowsList.push(productOrder);
-          console.log(this.orderRowsList)
-          console.log("Hamnar i else")
-            
+
+          // return
         }
-        console.log(this.orderRowsList)
-        console.log(this.newListfromLs)
+        
       }
+      
     }
 
-
+    // this.getCartfromLs()
     // for (let i = 0; i < this.cartProduct.length; i++) {
     //   // ProductId
     //   let objectId = this.cartProduct[i].id;
