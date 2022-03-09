@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/models/IProduct';
-import { MockProductsService } from 'src/app/services/mock-products.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -13,21 +12,14 @@ export class ProductComponent implements OnInit {
   product: IProduct[] = [];
   buyProduct: IProduct[] = [];
   productLs: IProduct[] = [];
-  mockProduct: any;
 
-  constructor(private service: ProductsService, private mockService: MockProductsService) { }
+  constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
     this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
       this.product = dataFromProductApi;
     })
     this.service.getProduct();
-
-    // Mocktjänsten
-    this.mockService.productData$.subscribe((mockData: IProduct) => {
-      this.mockProduct = mockData;
-    })
-    this.mockService.getProduct();
   }
 
   // Lägg till i varukorg

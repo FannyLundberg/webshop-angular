@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IProduct } from '../models/IProduct';
+import { IProductService } from './IProductService';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsService {
+export class ProductsService implements IProductService {
 
   private productData = new Subject<IProduct[]>();
-  productData$ = this.productData.asObservable();
+  public productData$: Observable<IProduct[]> = this.productData.asObservable();
 
   constructor(private http: HttpClient) { }
 
