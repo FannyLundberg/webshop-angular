@@ -14,4 +14,13 @@
             <a (click)="addToCart(i)" [routerLink]="['/shopping-cart']" routerLinkActive="active">Köp</a>
         </button>
     </div>
+
+
+    <div>
+        
+        <h3> {{ mockProduct[0].name | titlecase }} </h3>
+        <img src="{{ mockProduct[0].imageUrl }}">
+        <p> {{ mockProduct[0].year }} </p>
+        <p> {{ mockProduct[0].price }} kronor </p>
+    </div>
 </section>

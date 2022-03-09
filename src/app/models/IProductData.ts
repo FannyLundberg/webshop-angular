@@ -1,9 +1,9 @@
-// import { Observable } from "rxjs";
-// import { IProduct } from "./IProduct";
+import { Observable } from "rxjs";
+import { IProduct } from "./IProduct";
 
-// export interface IProductData {
+export interface IProductData {
     
-//     products: IProduct[];
+    products: IProduct;
 
-//     getProduct(data: string): Observable<IProduct[]>;
-// }
+    getProduct(data: string): Observable<IProduct>;
+}

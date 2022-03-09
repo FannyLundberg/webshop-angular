@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { IProduct } from '../models/IProduct';
 
 @Injectable({
@@ -7,42 +7,29 @@ import { IProduct } from '../models/IProduct';
 })
 export class MockProductsService {
   
-  private productData = new Subject<IProduct[]>();
-  productData$ = this.productData.asObservable();
+  private productData = new Subject<IProduct>();
+  productData$: Observable<IProduct> = this.productData.asObservable();
 
-  // // ngOnInit() {
-  //   private testData: IProduct[] = [
-  //     { 
-  //       id: 0, 
-  //       companyId: 10001,
-  //       created: 19910811,
-  //       createdBy: "Testperson",
-  //       paymentMethod: "Kontant",
-  //       totalPrice: 199,
-  //       status: 11,
-  //       orderRows: [],
-  //     };
-  //   ]
-     
-// testData: IProduct[] = {
-//     id: 0,
-//     name: "string",
-//     description: "string",
-//     price: 0, 
-//     imageUrl: "string",
-//     year: 1991,
-//     productCategory: [
-//         { 
-//             category: null,
-//             categoryId: 0,
-//         }
+  constructor() {}
 
-//     ]
-// }
+  private mockData: IProduct = {
+    id: 19910811,
+    name: "Fanny",
+    description: "Jag är glad",
+    price: 123456789, 
+    imageUrl: "string",
+    year: 1991,
+    productCategory: [
+        { 
+            category: null,
+            categoryId: 11,
+        }
+  
+    ]
+  };
 
-
-  getTestData() {
-    // this.productData.next(this.testData)
+  getProduct(): void {
+    this.productData.next(this.mockData);
   }
 
 }

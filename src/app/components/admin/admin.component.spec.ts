@@ -1,14 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
 import { AdminComponent } from './admin.component';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
   let fixture: ComponentFixture<AdminComponent>;
+  let id: number;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
+      declarations: [ AdminComponent ],
+      providers: [AdminComponent, HttpClientModule, HttpClient, HttpHandler]
     })
     .compileComponents();
   });
@@ -22,4 +24,16 @@ describe('AdminComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // Testa att id kommer med vid tryck på "Ta bort order"
+  it("should include Id when click Delete", () => {
+    // Förbereda
+    expect(component.deleteOrder).not;
+
+    // Agera
+    component.deleteOrder(id);
+
+    // Verifiera
+    expect(component.deleteOrder).toContain(id);
+  })
 });

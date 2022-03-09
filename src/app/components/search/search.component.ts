@@ -34,7 +34,6 @@ export class SearchComponent implements OnInit {
   // Koppla ihop med tjänsten
   inputText(textInput: string) {
     this.search.next(textInput);
-
   }
 
 }
