@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, Observable, Subject, switchMap } from 'rxjs';
 import { IProduct } from 'src/app/models/IProduct';
 import { SearchService } from 'src/app/services/search.service';
 
@@ -22,6 +22,8 @@ export class SearchComponent implements OnInit {
       debounceTime(500),
       // Vänta antal millisekunder och gör check om något ändrats
       distinctUntilChanged(),
+      // Måste vara fler än ett tecken
+      filter((searchFromUser: string) => searchFromUser.length > 1),
       // Har något ändrats görs sök
       switchMap((searchFromUser) => {
         return this.service.searchProduct(searchFromUser)
@@ -29,8 +31,10 @@ export class SearchComponent implements OnInit {
     );
   }
 
+  // Koppla ihop med tjänsten
   inputText(textInput: string) {
     this.search.next(textInput);
+
   }
 
 }

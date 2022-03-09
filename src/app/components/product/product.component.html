@@ -1,6 +1,8 @@
 <section>
+    
     <div id="divHeading">
         <h2>Alla filmer</h2>
+        <a [routerLink]="['/search']" routerLinkActive="active">Sök 🔍</a>
     </div>
 
     <div *ngFor="let p of product; let i = index">

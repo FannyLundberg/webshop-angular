@@ -1,12 +1,21 @@
 <section>
     <div id="divInput">
-        <input type="text" placeholder="Sök" #search (input)="inputText(search.value)">
+        <p>Vad söker du efter?</p>
+        <input type="text" placeholder="Skriv titel" #search (input)="inputText(search.value)">
+        <div id="divCategory">
+            <p>Vill du hellre söka efter en viss genre? 
+                <a [routerLink]="['/category']" routerLinkActive="active">Klicka här</a>
+            </p>
+        </div>
     </div>
 
     <div *ngFor="let product of searchProduct | async">
         <h3> {{ product.name }} </h3>
         <img src="{{ product.imageUrl }}">
         <p> {{ product.price }} kronor </p>
-        <a [routerLink]="['/product', product.id]" routerLinkActive="active">Läs mer</a>
+    </div>
+
+    <div id="backToProducts">
+        <a [routerLink]="['/product']" routerLinkActive="active">Tillbaka till alla produkter ↩</a>
     </div>
 </section>

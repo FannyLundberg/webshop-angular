@@ -24,21 +24,21 @@ export class MockProductsService {
   //     };
   //   ]
      
-testData: IProduct[] = {
-    id: 0,
-    name: "string",
-    description: "string",
-    price: 0, 
-    imageUrl: "string",
-    year: 1991,
-    productCategory: [
-        { 
-            category: null,
-            categoryId: 0,
-        }
+// testData: IProduct[] = {
+//     id: 0,
+//     name: "string",
+//     description: "string",
+//     price: 0, 
+//     imageUrl: "string",
+//     year: 1991,
+//     productCategory: [
+//         { 
+//             category: null,
+//             categoryId: 0,
+//         }
 
-    ]
-}
+//     ]
+// }
 
 
   getTestData() {

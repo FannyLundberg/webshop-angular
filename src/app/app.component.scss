@@ -11,7 +11,8 @@ ul {
             color: white;
             &.active {
                 text-decoration: underline;
-                color: rgb(202, 202, 202);
+                color: rgb(170, 167, 167);
+                font-weight: bold;
             }
         }
     }

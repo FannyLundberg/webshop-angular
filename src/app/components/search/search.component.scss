@@ -15,6 +15,17 @@ div {
 #divInput {
     width: 100vw;
     height: fit-content;
+    margin: 0;
+}
+
+#divCategory {
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 3%;
+    background-color: rgba(255, 255, 255, 0.13);
 }
 
 img {
@@ -30,4 +41,11 @@ a {
     &.active {
         text-decoration: underline;
     }
+}
+
+#backToProducts {
+    width: 65%;
+    border: 1px solid white;
+    height: fit-content;
+    background-color: rgba(255, 255, 255, 0.068);
 }
