@@ -11,7 +11,7 @@ describe('DetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DetailsComponent ],
-      providers: [ DetailsComponent, HttpClientModule, HttpClient, HttpHandler ],
+      providers: [ DetailsComponent, HttpClientModule ],
       imports: [ RouterTestingModule, HttpClientTestingModule, HttpClientModule ]
     })
     .compileComponents();

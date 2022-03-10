@@ -7,8 +7,9 @@ describe('AdminService', () => {
   let service: AdminService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({ imports: [HttpClientTestingModule ], 
-      providers: [AdminService, HttpClientModule, HttpClient, HttpHandler ]});
+    TestBed.configureTestingModule({ 
+      imports: [ HttpClientTestingModule ], 
+      providers: [ AdminService, HttpClientModule ]});
       service = TestBed.inject(AdminService);
   });
 

@@ -11,7 +11,7 @@ describe('CategoryComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CategoryComponent ],
-      providers: [CategoryComponent, HttpClientModule, HttpClient, HttpHandler],
+      providers: [ CategoryComponent, HttpClientModule ],
       imports: [ HttpClientTestingModule, HttpClientModule ]
     })
     .compileComponents();

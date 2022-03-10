@@ -11,7 +11,7 @@ describe('AdminComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AdminComponent ],
-      providers: [AdminComponent, HttpClientModule, HttpClient, HttpHandler],
+      providers: [AdminComponent, HttpClientModule ],
       imports: [ HttpClientTestingModule, HttpClientModule ]
     })
     .compileComponents();

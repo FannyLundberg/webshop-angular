@@ -8,7 +8,7 @@ export class MockProductService implements IProductService {
     public productData$: Observable<IProduct[]> = this.productData.asObservable();
 
 
-    private mockData: IProduct[] = [
+    private mockData: IProduct[] = [ 
         {
             id: 19910811,
             name: "Fanny",

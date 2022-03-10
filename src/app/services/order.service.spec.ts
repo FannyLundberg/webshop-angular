@@ -8,8 +8,9 @@ describe('OrderService', () => {
 
   beforeEach(() => {
     
-    TestBed.configureTestingModule({ imports: [HttpClientTestingModule ], 
-      providers: [OrderService, HttpClientModule, HttpClient, HttpHandler]});
+    TestBed.configureTestingModule({ 
+      imports: [ HttpClientTestingModule ], 
+      providers: [ OrderService, HttpClientModule, HttpClient, HttpHandler ]});
       service = TestBed.inject(OrderService);
   });
 

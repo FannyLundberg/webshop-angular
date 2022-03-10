@@ -27,7 +27,7 @@ h3:hover {
 
 #divProduct {
     width: 40%;
-    height: 350px;
+    height: 300px;
     margin: 4%;
     text-align: center;
 }
@@ -35,4 +35,18 @@ h3:hover {
 img {
     width: 200px;
     height: 250px;
+}
+
+@media screen and (min-width: 1200px) {
+    #divGenre {
+        width: 20%;
+        margin: 2%;
+    }
+
+    #divProduct {
+        width: 20%;
+        height: 300px;
+        margin: 2%;
+        text-align: center;
+    }
 }

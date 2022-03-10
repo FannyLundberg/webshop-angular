@@ -11,7 +11,7 @@ describe('SearchComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SearchComponent ],
-      providers: [SearchComponent, HttpClientModule, HttpClient, HttpHandler],
+      providers: [SearchComponent, HttpClientModule ],
       imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
