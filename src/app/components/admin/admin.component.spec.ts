@@ -38,4 +38,5 @@ describe('AdminComponent', () => {
     // Verifiera
     expect(component.deleteOrder).toContain(id);
   })
+  
 });

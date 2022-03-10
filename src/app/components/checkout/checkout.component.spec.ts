@@ -26,4 +26,17 @@ describe('CheckoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // Testa att orderComplete går från falsk till sant vid bekräftad order
+  it("should change from false to true", () => {
+    // Förbereda
+    expect(component.orderComplete).toBeFalse;
+
+    // Agera
+    component.submitOrder();
+
+    // Verifiera
+    expect(component.orderComplete).toBeTrue;
+  })
+
 });

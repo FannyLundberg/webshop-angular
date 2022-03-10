@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
 
   // Lägg till i varukorg
   addToCart(i: number) {
-    alert("Din vara har lagts till i varukorgen 💃")
+    alert("Din vara har lagts till i varukorgen 🛒")
 
     let buyProduct = this.product[i];
     this.saveCartToLs(buyProduct);

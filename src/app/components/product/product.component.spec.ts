@@ -45,9 +45,8 @@ describe('ProductComponent', () => {
   //   };
   // }
 
-
+  // Testa namn (med mockdata)
   it("should be Fanny as name", () => {
-    // Förbereda
     expect(component.product[0].name).toBe("Fanny");
   })
 

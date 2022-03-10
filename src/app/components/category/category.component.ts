@@ -17,9 +17,25 @@ export class CategoryComponent implements OnInit {
 
   constructor(private categoryService: CategoryService, private productService: ProductsService) { }
 
+  ngOnInit(): void {
+    // Kategori
+    this.categoryService.categoryData$.subscribe((dataFromCategoryApi: ICategory[]) => {
+      this.category = dataFromCategoryApi;
+    })
+    this.categoryService.getCategory();
+
+    // Alla produkter
+    this.productService.productData$.subscribe((dataFromProductApi: IProduct[]) => {
+      this.product = dataFromProductApi;
+    })
+    this.productService.getProduct();
+  }
+
   showGenre(id: number) {
+    // Tömma listan för att kunna skapa en ny beroende på vilken genre man tryckt på
     this.showProduct = [];
 
+    // Kontrollera vilka produkter som är aktuella för vald genre, pusha till lista
     this.product.forEach((p) => {
       for (let i = 0; i < p.productCategory.length; i++) {
         if (p.productCategory[i].categoryId === id) {
@@ -27,18 +43,6 @@ export class CategoryComponent implements OnInit {
         }
       }
     })
-  }
-
-  ngOnInit(): void {
-    this.categoryService.categoryData$.subscribe((dataFromCategoryApi: ICategory[]) => {
-      this.category = dataFromCategoryApi;
-    })
-    this.categoryService.getCategory();
-
-    this.productService.productData$.subscribe((dataFromProductApi: IProduct[]) => {
-      this.product = dataFromProductApi;
-    })
-    this.productService.getProduct();
   }
 
 }

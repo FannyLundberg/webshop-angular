@@ -5,6 +5,10 @@ section {
     flex-wrap: wrap;
 }
 
+h2 {
+    text-shadow: 1px 1px 2px rgb(223, 221, 221);
+}
+
 div {
     width: 40%;
     height: 350px;
@@ -39,4 +43,13 @@ a {
 button {
     background-color: rgb(71, 69, 69);
     margin: 2%;
+}
+
+@media screen and (min-width: 1200px) {
+    div {
+        width: 20%;
+        height: 390px;
+        margin: 2%;
+        text-align: center;
+    }
 }

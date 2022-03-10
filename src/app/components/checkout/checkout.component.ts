@@ -54,7 +54,7 @@ export class CheckoutComponent implements OnInit {
         } else {
           for (let j = 0; j < this.orderRowsList.length; j++) {
             if (this.orderRowsList[j].productId === this.cartProduct[i].id) {
-              // Om varan finns, öka antal produkter med 1
+              // Om redan varan finns, öka antal produkter med 1
               this.orderRowsList[j].amount++
             }
           }
@@ -90,7 +90,6 @@ export class CheckoutComponent implements OnInit {
     };
     this.service.orderProduct(newFormData).subscribe(data => {
       this.orderComplete = true;
-      console.log(data);
     });
   }
 

@@ -8,6 +8,7 @@ section {
 h2 {
     margin-bottom: 2%;
     width: 100vw;
+    text-shadow: 1px 1px 2px rgb(223, 221, 221);
 }
 
 #divGenre {
@@ -17,12 +18,14 @@ h2 {
     background-color: rgba(255, 255, 255, 0.096);
 }
 
-h3 {
-    cursor: pointer;
+#divGenre:hover {
+    background-color: rgba(255, 255, 255, 0.65);
+    color: black;
+    border: 1px solid black; 
 }
 
-h3:hover {
-    text-decoration: underline;
+h3 {
+    cursor: pointer;
 }
 
 #divProduct {

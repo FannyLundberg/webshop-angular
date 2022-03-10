@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -26,17 +26,5 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  // Testa att värdet blir true när allt är inläst
-  it("should read all products", () => {
-    // Förbereda
-    expect(productsRead).toBeFalse;
-
-    // Agera
-    component.ngOnInit;
-
-    // Verifiera
-    expect(productsRead).toBeTrue;
-  })
 
 });

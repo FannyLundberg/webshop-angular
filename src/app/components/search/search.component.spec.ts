@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SearchComponent } from './search.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -26,4 +26,5 @@ describe('SearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

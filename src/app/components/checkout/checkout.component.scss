@@ -2,6 +2,10 @@ section {
     width: 100vw;
 }
 
+h2 {
+    text-shadow: 1px 1px 2px rgb(223, 221, 221);
+}
+
 h3 {
     margin-top: 3%;
     margin-bottom: 5%;
@@ -18,3 +22,14 @@ a {
     display: block;
 }
 
+@media screen and (min-width: 1200px) {
+    h3 {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    
+    div {
+        margin-bottom: 3%;
+        border-bottom: 1px solid white;
+    }
+}

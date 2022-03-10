@@ -4,6 +4,8 @@ section {
 
 h2 {
     margin: 2%;
+    border-bottom: 1px solid white;
+    text-shadow: 1px 1px 2px rgb(223, 221, 221);
 }
 
 h3 {
@@ -26,7 +28,7 @@ a {
 }
 
 #submitCart {
-    margin-top: 10%;
+    margin-top: 5%;
     button {
         background-color: rgb(58, 56, 56);
         box-shadow: white inset 2px;
@@ -35,5 +37,26 @@ a {
 }
 
 aside {
-    margin-top: 8%;
+    margin-top: 5%;
+    border-top: 1px solid white;
+    padding-top: 3%;
+}
+
+@media screen and (min-width: 1200px) {
+    #cartSection {
+        margin-bottom: 2%;
+        padding: 1%;
+    }
+
+    #submitCart {
+        margin-top: 2%;
+        button {
+            padding: 1%;
+        }
+    }
+
+    aside {
+        margin-top: 1%;
+        padding-top: 1%;
+    }
 }

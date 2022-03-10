@@ -20,7 +20,6 @@ export class CategoryService {
     .get<ICategory[]>(environment.categoryURL)
     .subscribe((dataFromCategoryApi) => {
       this.categoryData.next(dataFromCategoryApi);
-      console.log(dataFromCategoryApi);
     })
   }
 

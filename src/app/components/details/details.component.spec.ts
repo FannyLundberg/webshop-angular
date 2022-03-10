@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientModule, HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -26,17 +26,5 @@ describe('DetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  // Testa att id kommer med vid tryck på "Ta bort order"
-  it("should have one product to show", () => {
-    // Förbereda
-    expect(component.productId).not;
-
-    // Agera
-    component.ngOnInit();
-
-    // Verifiera
-    expect(component.productId).toBe;
-  })
 
 });

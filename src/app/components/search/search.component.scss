@@ -44,8 +44,17 @@ a {
 }
 
 #backToProducts {
-    width: 65%;
+    width: 100%;
     border: 1px solid white;
     height: fit-content;
     background-color: rgba(255, 255, 255, 0.068);
+}
+
+@media screen and (min-width: 1200px) {
+    div {
+        width: 20%;
+        height: 350px;
+        margin: 2%;
+        text-align: center;
+    }
 }

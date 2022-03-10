@@ -12,7 +12,6 @@
     <div *ngFor="let product of searchProduct | async">
         <h3> {{ product.name }} </h3>
         <img src="{{ product.imageUrl }}">
-        <p> {{ product.price }} kronor </p>
     </div>
 
     <div id="backToProducts">

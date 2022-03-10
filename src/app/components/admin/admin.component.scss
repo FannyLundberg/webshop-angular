@@ -3,6 +3,10 @@ section {
     text-align: center;
 }
 
+h2 {
+    text-shadow: 1px 1px 2px rgb(223, 221, 221);
+}
+
 div {
     margin-top: 7%;
 }
@@ -17,4 +21,10 @@ button {
     margin: 1%;
     padding: 1%;
     border-radius: 7%;
+}
+
+@media screen and (min-width: 1200px) {
+    div {
+        margin-top: 2%;
+    }
 }
