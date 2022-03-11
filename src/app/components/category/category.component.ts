@@ -31,6 +31,7 @@ export class CategoryComponent implements OnInit {
     this.productService.getProduct();
   }
 
+  // Körs vid klick på en genre
   showGenre(id: number) {
     // Tömma listan för att kunna skapa en ny beroende på vilken genre man tryckt på
     this.showProduct = [];

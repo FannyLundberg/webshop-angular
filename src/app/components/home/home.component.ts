@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     this.service.productData$.subscribe((dataFromProductApi: IProduct[]) => {
       this.product = dataFromProductApi;
       
-      // När produkterna är inlästa, ändra till true
+      // Ändras till true när produkterna är inlästa
       this.productsRead = true;
     })
     this.service.getProduct();

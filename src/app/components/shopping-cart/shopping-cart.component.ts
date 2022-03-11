@@ -20,7 +20,7 @@ export class ShoppingCartComponent implements OnInit {
   getCartfromLs() {
     let cartObject = localStorage.getItem("productCart") || "[]";
     this.cartProduct = JSON.parse(cartObject);
-  }
+  };
 
   // Ta bort produkt ur varukorgen och ls
   removeProduct(i: number) {
@@ -33,6 +33,6 @@ export class ShoppingCartComponent implements OnInit {
 
     // Hämta ut nya listan igen
     this.getCartfromLs();
-  }
+  };
 
 }

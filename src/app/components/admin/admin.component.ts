@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit {
     this.service.getOrder()
   }
 
+  // Körs vid klick på "Ta bort order"
   deleteOrder(id: number) {
     this.service.deleteOrders(id);
   }

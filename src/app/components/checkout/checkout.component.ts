@@ -16,7 +16,6 @@ export class CheckoutComponent implements OnInit {
   totalProducts: number = 0;
   orderComplete = false;
   amount: number = 1;
-  orderRows: IOrderRows | undefined;
   orderRowsList: IOrderRows[] = [];
 
   // Formulär
@@ -37,15 +36,20 @@ export class CheckoutComponent implements OnInit {
     this.cartProduct = JSON.parse(cartObject);
 
     for (let i = 0; i < this.cartProduct.length; i++) {
+      
       // ProduktId
       let objectId = this.cartProduct[i].id;
+      
       // Antal varor totalt 
       this.totalProducts = this.cartProduct.length;
+      
       // Totalt pris
       this.totalPrice += this.cartProduct[i].price;
+
       // Antal av en produkt
       let objectAmount = this.amount;
-      // Variabel för objektet som ska pushas in i orderRows
+
+      // Variabel för objektet som ska pushas in i orderRowsList
       let productOrder = {productId: objectId, amount: objectAmount}
 
         // Om varan inte finns, pusha in objekt med id och antal 1
@@ -54,6 +58,7 @@ export class CheckoutComponent implements OnInit {
         } else {
           for (let j = 0; j < this.orderRowsList.length; j++) {
             if (this.orderRowsList[j].productId === this.cartProduct[i].id) {
+
               // Om redan varan finns, öka antal produkter med 1
               this.orderRowsList[j].amount++
             }
@@ -72,12 +77,13 @@ export class CheckoutComponent implements OnInit {
     return this.orderForm.get("lastName");
   }
 
-  // Bekräfta order
+  // Körs vid tryck på "Beställ"
   submitOrder() {
 
     // Variabel för CreatedBy
     let name = this.orderForm.value.firstName + " " + this.orderForm.value.lastName;
 
+    // Variabel som skickas till order-API
     const newFormData = { 
       id: 0, 
       companyId: 30,

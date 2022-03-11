@@ -1,7 +1,8 @@
 <section>
     <div id="divInput">
-        <p>Vad söker du efter?</p>
-        <input type="text" placeholder="Skriv titel" #search (input)="inputText(search.value)">
+        <h2>Vad söker du efter?</h2>
+        <p>Skriv titel eller början på en titel (minst tre tecken)</p>
+        <input type="text" placeholder="Sök" #search (input)="inputText(search.value)">
         <div id="divCategory">
             <p>Vill du hellre söka efter en viss genre? 
                 <a [routerLink]="['/category']" routerLinkActive="active">Klicka här</a>

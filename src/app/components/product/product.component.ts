@@ -11,7 +11,7 @@ export class ProductComponent implements OnInit {
 
   product: IProduct[] = [];
   buyProduct: IProduct[] = [];
-  productLs: IProduct[] = [];
+  productList: IProduct[] = [];
 
   constructor(private service: ProductsService) { }
 
@@ -32,11 +32,11 @@ export class ProductComponent implements OnInit {
 
   // Spara till localStorage för varukorgen
   saveCartToLs(buyProduct: IProduct) {
-    let productList = localStorage.getItem("productCart") || "[]";
-    this.productLs = JSON.parse(productList);
+    let productLs = localStorage.getItem("productCart") || "[]";
+    this.productList = JSON.parse(productLs);
 
-    this.productLs.push(buyProduct);
-    localStorage.setItem("productCart", JSON.stringify(this.productLs));
+    this.productList.push(buyProduct);
+    localStorage.setItem("productCart", JSON.stringify(this.productList));
   }
 
 }

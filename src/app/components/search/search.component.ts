@@ -16,14 +16,13 @@ export class SearchComponent implements OnInit {
   constructor(private service: SearchService) { }
 
   ngOnInit(): void {
-    // Sökfunktion
     this.searchProduct = this.search.pipe(
       // Vänta millisekunder innan sök påbörjas
       debounceTime(500),
       // Vänta antal millisekunder och gör check om något ändrats
       distinctUntilChanged(),
       // Måste vara fler än ett tecken
-      filter((searchFromUser: string) => searchFromUser.length > 1),
+      filter((searchFromUser: string) => searchFromUser.length > 2),
       // Har något ändrats görs sök
       switchMap((searchFromUser) => {
         return this.service.searchProduct(searchFromUser)
@@ -31,9 +30,8 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  // Koppla ihop med tjänsten
   inputText(textInput: string) {
     this.search.next(textInput);
-  }
+  };
 
 }
